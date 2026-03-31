@@ -1,0 +1,241 @@
+/* ============================================================
+   BDFink Studios — Responsive Styles
+   Mobile-first vertical layout for screens < 768px
+   ============================================================ */
+
+/* --- Tablet (< 1024px) --- */
+@media (max-width: 1024px) {
+  :root {
+    --panel-padding: 48px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .illus-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .illus-feature {
+    gap: 40px;
+  }
+
+  .contact-layout {
+    gap: 40px;
+  }
+
+  .reel-grid {
+    flex-wrap: wrap;
+  }
+
+  .reel-embed {
+    max-width: 48%;
+    flex: 1 1 45%;
+  }
+
+  .social-brands {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+
+/* --- Mobile (< 768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --panel-padding: 24px;
+  }
+
+  /* Switch from horizontal to vertical layout */
+  .panels {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .panel {
+    width: 100%;
+    min-height: auto;
+    padding: 64px var(--panel-padding);
+    padding-top: calc(64px + 72px); /* First panel nav offset */
+  }
+
+  .panel + .panel {
+    padding-top: 64px;
+  }
+
+  /* Navigation */
+  .nav {
+    padding: 12px 16px;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .nav__mobile-toggle {
+    display: flex;
+  }
+
+  .nav__mobile-menu {
+    display: flex;
+  }
+
+  .nav__logo-text {
+    font-size: 0.75rem;
+  }
+
+  .nav__logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Hero */
+  .hero__logo {
+    width: 200px;
+  }
+
+  .hero__tagline {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero__subtitle {
+    margin-bottom: 40px;
+  }
+
+  .hero__scroll-hint span {
+    display: inline;
+  }
+
+  .hero__scroll-hint {
+    display: flex;
+  }
+
+  /* Video */
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .video-player {
+    border-radius: 8px;
+  }
+
+  /* Illustration Feature */
+  .illus-feature {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .illus-feature__image {
+    max-width: 100%;
+  }
+
+  /* Illustration Gallery */
+  .illus-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Pricing */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pricing-card {
+    padding: 24px 20px;
+  }
+
+  /* Contact */
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .panel__title--large {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  /* Lightbox */
+  .lightbox__prev,
+  .lightbox__next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox__prev { left: 12px; }
+  .lightbox__next { right: 12px; }
+
+  .lightbox__content iframe {
+    width: 95vw;
+    height: 56vw;
+  }
+
+  /* Browser frame */
+  .web-showcase {
+    max-width: 100%;
+  }
+
+  /* Reels - stack vertically on mobile */
+  .reel-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reel-embed {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .reel-embed--landscape {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  /* Social Media Management */
+  .social-brands {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .social-brand-card {
+    padding: 24px;
+  }
+}
+
+
+/* --- Small Mobile (< 480px) --- */
+@media (max-width: 480px) {
+  .hero__logo {
+    width: 160px;
+  }
+
+  .hero__logo-container {
+    margin-bottom: 32px;
+  }
+
+  .section-label {
+    margin-bottom: 24px;
+  }
+
+  .panel__title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 16px;
+  }
+
+  .pricing-tier__name {
+    font-size: var(--text-small);
+  }
+
+  .pricing-tier__desc {
+    font-size: var(--text-caption);
+  }
+
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+  }
+}

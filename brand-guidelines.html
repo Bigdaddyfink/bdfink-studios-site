@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDFink Studios — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* PRIMARY */
+    --midnight: #0D0F12;
+    --charcoal: #1A1D23;
+    --slate: #2A2E36;
+
+    /* BRAND COLORS */
+    --ember: #E8553D;
+    --ember-light: #F2765F;
+    --amber: #E8A83E;
+    --sage: #7CAE8A;
+    --steel: #5B8FA8;
+
+    /* NEUTRALS */
+    --smoke: #8B8F96;
+    --ash: #B4B8BF;
+    --cloud: #E2E4E8;
+    --white: #F5F5F3;
+
+    /* FUNCTIONAL */
+    --text-primary: #F5F5F3;
+    --text-secondary: #B4B8BF;
+    --text-muted: #8B8F96;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.15);
+
+    /* TYPE SCALE */
+    --fs-hero: clamp(3rem, 6vw, 5.5rem);
+    --fs-h1: clamp(2rem, 3.5vw, 3rem);
+    --fs-h2: clamp(1.5rem, 2.5vw, 2rem);
+    --fs-h3: clamp(1.1rem, 1.5vw, 1.35rem);
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+    --fs-caption: 0.75rem;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--midnight);
+    color: var(--text-primary);
+    line-height: 1.65;
+    font-size: var(--fs-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(13,15,18,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--ember); }
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--fs-small);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.06);
+  }
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* ============ LAYOUT ============ */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  section {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: var(--fs-caption);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ember);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ember);
+  }
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h1);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,85,61,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,168,62,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ember);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-hero);
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--ember);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .hero-meta-item .number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    color: var(--text-primary);
+  }
+  .hero-meta-item .label {
+    font-size: var(--fs-caption);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+
+  /* ============ BRAND OVERVIEW ============ */
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .brand-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .brand-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+  .brand-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+  .brand-card p {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .brand-card .icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .mission-block {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .mission-block::before {
+    content: '\201C';
+    font-family: 'Instrument Serif', serif;
+    font-size: 8rem;
+    color: var(--ember);
+    opacity: 0.15;
+    position: absolute;
+    top: -0.5rem;
+    left: 1.5rem;
+    line-height: 1;
+  }
+  .mission-block blockquote {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h2);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+  .brand-story p {
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+  .brand-story p + p { margin-top: 1rem; }
+
+  /* ============ LOGO ============ */
+  .logo-variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .logo-box {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .logo-box.light {
+    background: var(--white);
+  }
+  .logo-box h4 {
+    font-size: var(--fs-caption);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  .logo-box.light h4 { color: var(--slate); }
+  .logo-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+  }
+  .logo-text.on-dark { color: var(--text-primary); }
+  .logo-text.on-light { color: var(--midnight); }
+  .logo-text .accent { color: var(--ember); }
+
+  .logo-rules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .logo-rule {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+  .logo-rule h4 {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  .logo-rule p {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .naming-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .naming-table th,
+  .naming-table td {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    font-size: var(--fs-small);
+  }
+  .naming-table th {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--fs-caption);
+    font-weight: 600;
+  }
+  .naming-table td { color: var(--text-secondary); }
+  .naming-table td:first-child {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  .naming-table code {
+    background: rgba(232,85,61,0.1);
+    color: var(--ember-light);
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    font-size: var(--fs-caption);
+  }
+
+  /* ============ COLORS ============ */
+  .color-section-group {
+    margin-bottom: 3rem;
+  }
+  .color-section-group h3 {
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .color-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--charcoal);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .color-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-hover);
+  }
+  .color-swatch {
+    height: 100px;
+    position: relative;
+  }
+  .color-swatch .copied {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  .color-card.show-copied .color-swatch .copied {
+    opacity: 1;
+  }
+  .color-info {
+    padding: 1rem;
+  }
+  .color-info .name {
+    font-weight: 600;
+    font-size: var(--fs-small);
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+  .color-info .hex {
+    font-size: var(--fs-caption);
+    color: var(--text-muted);
+    font-family: 'DM Sans', monospace;
+    letter-spacing: 0.03em;
+  }
+  .color-info .usage {
+    font-size: var(--fs-caption);
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  .type-showcase {
+    margin-bottom: 3rem;
+  }
+  .type-specimen {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+  }
+  .type-specimen-label {
+    font-size: var(--fs-caption);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ember);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .type-specimen h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .type-specimen .body-demo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 3rem;
+  }
+  .type-scale-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: baseline;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    gap: 2rem;
+  }
+  .type-scale-row .meta {
+    font-size: var(--fs-caption);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-top: 0.3em;
+  }
+  .type-scale-row .sample.serif {
+    font-family: 'Instrument Serif', serif;
+    color: var(--text-primary);
+  }
+  .type-scale-row .sample.sans {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-primary);
+  }
+
+  .type-guidelines {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .type-guideline-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+  }
+  .type-guideline-card h4 {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+  .type-guideline-card p,
+  .type-guideline-card li {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .type-guideline-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .type-guideline-card li::before {
+    content: '—';
+    color: var(--ember);
+    margin-right: 0.5rem;
+  }
+  .type-guideline-card li + li { margin-top: 0.35rem; }
+
+  /* ============ TONE OF VOICE ============ */
+  .tone-spectrum {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+  }
+  .tone-item {
+    background: var(--charcoal);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .tone-item .trait {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h3);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  .tone-item .desc {
+    font-size: var(--fs-caption);
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .tone-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .tone-do, .tone-dont {
+    background: var(--charcoal);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+  }
+  .tone-do h4, .tone-dont h4 {
+    font-size: var(--fs-small);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .tone-do h4 { color: var(--sage); }
+  .tone-dont h4 { color: var(--ember); }
+  .tone-do li, .tone-dont li {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+  }
+  .tone-do li:last-child, .tone-dont li:last-child { border-bottom: none; }
+  .tone-do ul, .tone-dont ul { padding: 0; }
+
+  .tone-contexts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .tone-context {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  .tone-context h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h3);
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+  .tone-context p {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .tone-context .example {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(232,85,61,0.05);
+    border-left: 2px solid var(--ember);
+    border-radius: 0 6px 6px 0;
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* ============ VISUAL STYLE ============ */
+  .visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .visual-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+  .visual-card h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h3);
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  .visual-card p, .visual-card li {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .visual-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .visual-card li { padding: 0.3rem 0; }
+  .visual-card li::before {
+    content: '•';
+    color: var(--ember);
+    margin-right: 0.65rem;
+  }
+
+  .layout-demo {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+  .grid-example {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 8px;
+    margin-top: 1rem;
+  }
+  .grid-cell {
+    height: 40px;
+    background: rgba(232,85,61,0.1);
+    border: 1px solid rgba(232,85,61,0.2);
+    border-radius: 4px;
+  }
+  .grid-cell.span-4 { grid-column: span 4; }
+  .grid-cell.span-6 { grid-column: span 6; }
+  .grid-cell.span-8 { grid-column: span 8; }
+  .grid-cell.span-12 { grid-column: span 12; }
+  .grid-label {
+    font-size: var(--fs-caption);
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+
+  /* ============ DIGITAL PRESENCE ============ */
+  .digital-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .digital-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+  .digital-card h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h3);
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  .digital-card p, .digital-card li {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .digital-card ul { list-style: none; padding: 0; }
+  .digital-card li { padding: 0.3rem 0; }
+  .digital-card li::before {
+    content: '→';
+    color: var(--ember);
+    margin-right: 0.5rem;
+  }
+  .digital-card code {
+    background: rgba(232,85,61,0.1);
+    color: var(--ember-light);
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    font-size: var(--fs-caption);
+  }
+
+  .email-sig {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    color: var(--midnight);
+    max-width: 420px;
+    margin-top: 1.5rem;
+  }
+  .email-sig .sig-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.15rem;
+  }
+  .email-sig .sig-title {
+    font-size: var(--fs-small);
+    color: var(--smoke);
+    margin-bottom: 0.75rem;
+  }
+  .email-sig .sig-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--ember);
+    margin-bottom: 0.75rem;
+  }
+  .email-sig .sig-details {
+    font-size: var(--fs-caption);
+    color: var(--smoke);
+    line-height: 1.7;
+  }
+  .email-sig .sig-details a {
+    color: var(--ember);
+    text-decoration: none;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--fs-small);
+  }
+  footer .footer-brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(13,15,18,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex; }
+    .mobile-toggle { display: block; }
+
+    section { padding: 4rem 0; }
+    .brand-story { grid-template-columns: 1fr; }
+    .logo-variants { grid-template-columns: 1fr; }
+    .type-guidelines { grid-template-columns: 1fr; }
+    .tone-spectrum { grid-template-columns: 1fr 1fr; }
+    .tone-examples { grid-template-columns: 1fr; }
+    .tone-contexts { grid-template-columns: 1fr; }
+    .visual-grid { grid-template-columns: 1fr; }
+    .type-scale-row { grid-template-columns: 80px 1fr; gap: 1rem; }
+    .hero-meta { gap: 1.5rem; }
+  }
+
+  /* ============ LOGO IMAGE ============ */
+  .logo-showcase {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .logo-showcase img {
+    max-width: 380px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+  .logo-showcase .logo-caption {
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .logo-showcase-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .logo-showcase.on-light {
+    background: var(--white);
+  }
+  .logo-showcase.on-light .logo-caption {
+    color: var(--smoke);
+  }
+
+  .brand-elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .brand-element {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+  }
+  .brand-element h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: var(--fs-h3);
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  .brand-element p {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">BD<span>Fink</span> Studios</a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#tone">Tone</a></li>
+      <li><a href="#visual">Visual Style</a></li>
+      <li><a href="#digital">Digital</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-eyebrow">Brand Guidelines — 2026</div>
+    <h1>Big Daddy<br><em>Fink Studios</em></h1>
+    <p class="hero-sub">The complete brand identity system for a creative studio spanning video production, motion graphics, illustration, and design.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="number">26+</span>
+        <span class="label">Years of Experience</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="number">2</span>
+        <span class="label">Creative Disciplines</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="number">SCAD</span>
+        <span class="label">BFA Education</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND OVERVIEW -->
+<section id="overview">
+  <div class="container">
+    <div class="section-label">01 — Brand Overview</div>
+    <h2 class="section-title">Who We Are</h2>
+
+    <div class="mission-block fade-in">
+      <blockquote>We transform ideas into motion and ink into impact — delivering creative solutions that move audiences, whether on screen or on paper.</blockquote>
+    </div>
+
+    <div class="brand-story fade-in">
+      <div>
+        <p>Big Daddy Fink Studios — known as BDFink Studios — is a creative services studio founded by Timmy Harris, a SCAD-trained artist and designer with over 26 years of professional experience. The name carries the swagger of rock poster art and the grit of underground illustration, while the work behind it spans everything from Fortune 500 marketing to limited-edition screen prints.</p>
+        <p>From 16 years leading multimedia design at IBM to producing marketing content for brands at Techtronic Industries, the studio brings enterprise-level polish to every project — while never losing the creative fire that fuels its gig poster art and illustration work.</p>
+      </div>
+      <div>
+        <p>Today, BDFink Studios operates at the intersection of traditional craft and emerging technology, incorporating generative AI tools into its creative pipeline while maintaining the hand-crafted sensibility that makes each piece distinctive.</p>
+        <p>Whether it's a social media campaign that needs to stop the scroll, a motion graphics package that elevates a brand, or a limited-edition gig poster that becomes a collector's piece — the work is always driven by the same principle: make it matter.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-top: 3rem; margin-bottom: 1.5rem;">Brand Personality</h3>
+    <div class="brand-grid fade-in">
+      <div class="brand-card">
+        <span class="icon">◆</span>
+        <h3>Versatile</h3>
+        <p>Equally at home in a corporate boardroom presentation and a rock venue lobby. The work adapts to the audience without losing its identity.</p>
+      </div>
+      <div class="brand-card">
+        <span class="icon">◆</span>
+        <h3>Seasoned</h3>
+        <p>26+ years of solving creative problems across industries. Deep expertise that shows in the craft, not in the pitch.</p>
+      </div>
+      <div class="brand-card">
+        <span class="icon">◆</span>
+        <h3>Creative</h3>
+        <p>Rooted in fine art training (BFA, SCAD) with a restless curiosity for new tools and techniques — from hand-drawn illustration to generative AI.</p>
+      </div>
+      <div class="brand-card">
+        <span class="icon">◆</span>
+        <h3>Reliable</h3>
+        <p>Fortune 500-tested project management and delivery. Deadlines are met, feedback is incorporated, and quality is consistent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO & NAME -->
+<section id="logo">
+  <div class="container">
+    <div class="section-label">02 — Logo & Name Usage</div>
+    <h2 class="section-title">The Name System</h2>
+    <p class="section-desc">The studio name has several canonical forms depending on context. "Big Daddy Fink" is the full brand name, with abbreviated forms for different touchpoints. Consistency in usage reinforces brand recognition.</p>
+
+    <table class="naming-table fade-in">
+      <thead>
+        <tr>
+          <th>Form</th>
+          <th>Usage</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Big Daddy Fink Studios</td>
+          <td>Full brand name. Logo, merchandise, splash screens, brand-forward contexts</td>
+          <td>The illustrated logo with full lockup</td>
+        </tr>
+        <tr>
+          <td>BDFink Studios</td>
+          <td>Primary shorthand. Digital, URLs, email, social handles, everyday references</td>
+          <td><code>bdfinkstudios.com</code></td>
+        </tr>
+        <tr>
+          <td>B D Fink Studios</td>
+          <td>Spaced form for formal print, business cards, letterhead, contracts, invoices</td>
+          <td><code>© B D Fink Studios 2026</code></td>
+        </tr>
+        <tr>
+          <td>BDFink</td>
+          <td>Abbreviated form for tight spaces, social media avatars, watermarks</td>
+          <td><code>@bdfinkstudios</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1.5rem;">Primary Logo</h3>
+    <div class="logo-showcase-row fade-in">
+      <div class="logo-showcase">
+        <img src="logo.png" alt="Big Daddy Fink Studios Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; padding: 2rem; border: 1px dashed var(--border); border-radius: 8px; color: var(--text-muted); font-size: var(--fs-small);">Place <code>logo.png</code> in the same folder as this file</div>
+        <div class="logo-caption">Primary logo — on dark backgrounds</div>
+      </div>
+      <div class="logo-showcase on-light">
+        <img src="logo.png" alt="Big Daddy Fink Studios Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; padding: 2rem; border: 1px dashed #ccc; border-radius: 8px; color: var(--smoke); font-size: var(--fs-small);">Place <code>logo.png</code> in the same folder as this file</div>
+        <div class="logo-caption">Primary logo — on light backgrounds</div>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1rem;">Logo Elements</h3>
+    <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-bottom: 1.5rem;">The illustrated logo is a distinctive brand asset with several key components that should be preserved in all usage.</p>
+    <div class="brand-elements fade-in">
+      <div class="brand-element">
+        <h4>Typography Lockup</h4>
+        <p>"Big Daddy" in bold, blocky lowercase letters. "Fink" in outlined/dimensional lettering. "Studios" in flowing script. The mixed typographic styles are intentional — they reflect the studio's range.</p>
+      </div>
+      <div class="brand-element">
+        <h4>Self-Portrait Character</h4>
+        <p>The illustrated self-portrait in the golden circular frame is a core brand element. It personalizes the studio and establishes the hand-drawn aesthetic immediately.</p>
+      </div>
+      <div class="brand-element">
+        <h4>Mascot</h4>
+        <p>The brain creature with the red top hat is the studio mascot. It adds personality and works as a standalone mark for social media avatars, stickers, and watermarks.</p>
+      </div>
+      <div class="brand-element">
+        <h4>Color Language</h4>
+        <p>The logo uses deep maroon/red, black, white, and gold — tones that naturally align with the brand's Ember and Midnight palette. These colors anchor the brand across all touchpoints.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1.5rem;">Text-Only Wordmark</h3>
+    <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-bottom: 1.5rem;">For contexts where the full illustrated logo is too complex (small sizes, single-color printing, email signatures), use the text-only wordmark.</p>
+    <div class="logo-variants fade-in">
+      <div class="logo-box">
+        <h4>On Dark Backgrounds</h4>
+        <div class="logo-text on-dark">B D <span class="accent">Fink</span> Studios</div>
+      </div>
+      <div class="logo-box light">
+        <h4>On Light Backgrounds</h4>
+        <div class="logo-text on-light">B D <span class="accent">Fink</span> Studios</div>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1.5rem;">Logo Rules</h3>
+    <div class="logo-rules fade-in">
+      <div class="logo-rule">
+        <h4>Clear Space</h4>
+        <p>Maintain a minimum clear space around the logo equal to the height of the letter "B" on all sides. No other elements should encroach on this space.</p>
+      </div>
+      <div class="logo-rule">
+        <h4>Minimum Size</h4>
+        <p>The logo should never be displayed smaller than 120px wide on screen or 1.5 inches in print to maintain legibility.</p>
+      </div>
+      <div class="logo-rule">
+        <h4>Color Integrity</h4>
+        <p>Use only approved color combinations. On dark backgrounds, use white text with Ember accent. On light backgrounds, use Midnight text with Ember accent.</p>
+      </div>
+      <div class="logo-rule">
+        <h4>Don't Distort</h4>
+        <p>Never stretch, compress, rotate, add effects (drop shadows, outlines, gradients), or alter the proportions of the logo or its animated version.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section id="colors">
+  <div class="container">
+    <div class="section-label">03 — Color Palette</div>
+    <h2 class="section-title">Color System</h2>
+    <p class="section-desc">A palette built to bridge the corporate professionalism of video production with the bold energy of illustration and poster design. Click any swatch to copy its hex code.</p>
+
+    <div class="color-section-group fade-in">
+      <h3>Brand Colors</h3>
+      <div class="color-grid">
+        <div class="color-card" onclick="copyColor(this, '#E8553D')">
+          <div class="color-swatch" style="background: #E8553D;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Ember</div>
+            <div class="hex">#E8553D · RGB 232, 85, 61</div>
+            <div class="usage">Primary accent. CTAs, highlights, the "Fink" in the logo. Use boldly but sparingly.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#E8A83E')">
+          <div class="color-swatch" style="background: #E8A83E;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Amber</div>
+            <div class="hex">#E8A83E · RGB 232, 168, 62</div>
+            <div class="usage">Secondary warm accent. Warnings, supplementary highlights, illustration-side energy.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#7CAE8A')">
+          <div class="color-swatch" style="background: #7CAE8A;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Sage</div>
+            <div class="hex">#7CAE8A · RGB 124, 174, 138</div>
+            <div class="usage">Success states, positive indicators, balance against warm tones.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#5B8FA8')">
+          <div class="color-swatch" style="background: #5B8FA8;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Steel</div>
+            <div class="hex">#5B8FA8 · RGB 91, 143, 168</div>
+            <div class="usage">Informational, links, the professional/corporate side of the brand.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-section-group fade-in">
+      <h3>Dark Foundations</h3>
+      <div class="color-grid">
+        <div class="color-card" onclick="copyColor(this, '#0D0F12')">
+          <div class="color-swatch" style="background: #0D0F12;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Midnight</div>
+            <div class="hex">#0D0F12 · RGB 13, 15, 18</div>
+            <div class="usage">Primary background. The foundation of the brand's dark, cinematic feel.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#1A1D23')">
+          <div class="color-swatch" style="background: #1A1D23;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Charcoal</div>
+            <div class="hex">#1A1D23 · RGB 26, 29, 35</div>
+            <div class="usage">Cards, elevated surfaces, secondary backgrounds.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#2A2E36')">
+          <div class="color-swatch" style="background: #2A2E36;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Slate</div>
+            <div class="hex">#2A2E36 · RGB 42, 46, 54</div>
+            <div class="usage">Borders, dividers, tertiary backgrounds.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-section-group fade-in">
+      <h3>Neutrals</h3>
+      <div class="color-grid">
+        <div class="color-card" onclick="copyColor(this, '#8B8F96')">
+          <div class="color-swatch" style="background: #8B8F96;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Smoke</div>
+            <div class="hex">#8B8F96 · RGB 139, 143, 150</div>
+            <div class="usage">Muted text, captions, metadata, disabled states.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#B4B8BF')">
+          <div class="color-swatch" style="background: #B4B8BF;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Ash</div>
+            <div class="hex">#B4B8BF · RGB 180, 184, 191</div>
+            <div class="usage">Secondary body text, descriptions.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#E2E4E8')">
+          <div class="color-swatch" style="background: #E2E4E8;"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">Cloud</div>
+            <div class="hex">#E2E4E8 · RGB 226, 228, 232</div>
+            <div class="usage">Borders on light backgrounds, subtle dividers.</div>
+          </div>
+        </div>
+        <div class="color-card" onclick="copyColor(this, '#F5F5F3')">
+          <div class="color-swatch" style="background: #F5F5F3; border: 1px solid rgba(0,0,0,0.08);"><div class="copied">Copied!</div></div>
+          <div class="color-info">
+            <div class="name">White</div>
+            <div class="hex">#F5F5F3 · RGB 245, 245, 243</div>
+            <div class="usage">Primary text on dark, light-mode backgrounds. Warm white, not stark.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section id="typography">
+  <div class="container">
+    <div class="section-label">04 — Typography</div>
+    <h2 class="section-title">Type System</h2>
+    <p class="section-desc">A pairing of editorial serif and clean sans-serif that reflects the studio's dual nature — artistic craft meets professional clarity.</p>
+
+    <div class="type-showcase fade-in">
+      <div class="type-specimen">
+        <div class="type-specimen-label">Display — Instrument Serif</div>
+        <h2>The quick brown fox<br>jumps over the lazy dog</h2>
+      </div>
+      <div class="type-specimen">
+        <div class="type-specimen-label">Body — DM Sans</div>
+        <p class="body-demo">The quick brown fox jumps over the lazy dog. BDFink Studios delivers creative solutions across video production, motion graphics, illustration, and graphic design — with 26+ years of experience behind every frame and every stroke.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1.5rem;">Type Scale</h3>
+    <div class="type-scale fade-in">
+      <div class="type-scale-row">
+        <span class="meta">Hero</span>
+        <span class="sample serif" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">BDFink Studios</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="meta">H1</span>
+        <span class="sample serif" style="font-size: clamp(1.8rem, 3vw, 2.5rem);">Section Heading</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="meta">H2</span>
+        <span class="sample serif" style="font-size: clamp(1.3rem, 2vw, 1.75rem);">Subsection Title</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="meta">H3</span>
+        <span class="sample sans" style="font-size: 1.15rem; font-weight: 600;">Card Heading</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="meta">Body</span>
+        <span class="sample sans" style="font-size: 1rem;">Body text set in DM Sans at regular weight with generous line-height.</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="meta">Small</span>
+        <span class="sample sans" style="font-size: 0.875rem; color: var(--text-secondary);">Secondary text, descriptions, and supporting content.</span>
+      </div>
+      <div class="type-scale-row">
+        <span class="meta">Caption</span>
+        <span class="sample sans" style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Labels · Metadata · Timestamps</span>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1.5rem;">Usage Guidelines</h3>
+    <div class="type-guidelines fade-in">
+      <div class="type-guideline-card">
+        <h4>Instrument Serif — Display & Headings</h4>
+        <ul>
+          <li>Use for all display text, page titles, and section headings</li>
+          <li>Weight: 400 (regular) only — the serif's elegance comes from its natural form</li>
+          <li>Line-height: 1.05–1.15 for headings</li>
+          <li>Use italic sparingly for emphasis or creative accent</li>
+          <li>Never use below 1.1rem — switch to DM Sans for smaller sizes</li>
+        </ul>
+      </div>
+      <div class="type-guideline-card">
+        <h4>DM Sans — Body & Interface</h4>
+        <ul>
+          <li>Use for all body copy, navigation, buttons, labels, and UI text</li>
+          <li>Weights: 300 (light), 400 (regular), 500 (medium), 600 (semibold), 700 (bold)</li>
+          <li>Line-height: 1.5–1.7 for body text</li>
+          <li>Letter-spacing: 0.01em for body, 0.1–0.15em for uppercase labels</li>
+          <li>Use uppercase + letter-spacing for section labels and metadata</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TONE OF VOICE -->
+<section id="tone">
+  <div class="container">
+    <div class="section-label">05 — Tone of Voice</div>
+    <h2 class="section-title">How We Sound</h2>
+    <p class="section-desc">The brand voice bridges two audiences: corporate clients who need reliability, and the creative community who values authenticity. The key is confidence without pretension.</p>
+
+    <div class="tone-spectrum fade-in">
+      <div class="tone-item">
+        <div class="trait">Confident</div>
+        <div class="desc">Lead with expertise,<br>not with disclaimers</div>
+      </div>
+      <div class="tone-item">
+        <div class="trait">Direct</div>
+        <div class="desc">Say what we mean,<br>skip the jargon</div>
+      </div>
+      <div class="tone-item">
+        <div class="trait">Personable</div>
+        <div class="desc">Professional warmth,<br>not corporate cold</div>
+      </div>
+      <div class="tone-item">
+        <div class="trait">Grounded</div>
+        <div class="desc">Let the work speak,<br>not the adjectives</div>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1.5rem;">Do & Don't</h3>
+    <div class="tone-examples fade-in">
+      <div class="tone-do">
+        <h4>✓ Do</h4>
+        <ul>
+          <li>"I've spent 26 years solving creative problems — here's how I'd approach yours."</li>
+          <li>"Your video needs to stop the scroll in 3 seconds. I know how to make that happen."</li>
+          <li>"I handle the full pipeline: editing, motion graphics, color, sound, and delivery."</li>
+          <li>"Let's talk about what you need and find the right approach."</li>
+        </ul>
+      </div>
+      <div class="tone-dont">
+        <h4>✗ Don't</h4>
+        <ul>
+          <li>"I bring a wealth of expertise and a proven track record of delivering high-quality work."</li>
+          <li>"We provide compelling solutions leveraging our synergistic capabilities."</li>
+          <li>"Creative Thinker and Dreamer" (as a professional title)</li>
+          <li>"I've been getting into new stuff like Generative AI applications."</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin-bottom: 1.5rem;">Context Switching</h3>
+    <div class="tone-contexts fade-in">
+      <div class="tone-context">
+        <h4>Corporate & Proposals</h4>
+        <p>Professional, results-focused, specific. Emphasize deliverables, timelines, and measurable outcomes. Reference Fortune 500 experience and enterprise-level process.</p>
+        <div class="example">"With 16 years of multimedia production at IBM and post-production leadership at TTI, I bring enterprise-grade quality and reliability to every project."</div>
+      </div>
+      <div class="tone-context">
+        <h4>Creative Community</h4>
+        <p>Authentic, direct, fellow-artist energy. Emphasize craft, collaboration, and creative process. Let the art and illustration portfolio do the heavy lifting.</p>
+        <div class="example">"I've been drawing gig posters and concert art for over a decade. Each one is hand-crafted, limited edition, and designed to end up on someone's wall — not in the trash."</div>
+      </div>
+      <div class="tone-context">
+        <h4>Social Media</h4>
+        <p>Casual but intentional. Show process, behind-the-scenes, and finished work. Short, punchy captions. Let visuals lead.</p>
+        <div class="example">"New poster drop for @bandname. Three-color screen print, edition of 50. Link in bio."</div>
+      </div>
+      <div class="tone-context">
+        <h4>Resume & Cover Letters</h4>
+        <p>Confident and specific. Lead with results and capabilities, not generic descriptors. Every sentence should either prove competence or demonstrate fit.</p>
+        <div class="example">"Led end-to-end post-production for TTI's product launch campaigns, managing timelines across internal teams and external vendors to deliver on-brand video assets."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL STYLE -->
+<section id="visual">
+  <div class="container">
+    <div class="section-label">06 — Visual Style</div>
+    <h2 class="section-title">How We Look</h2>
+    <p class="section-desc">Visual guidelines that maintain consistency across both the video/motion portfolio and the illustration/design portfolio.</p>
+
+    <div class="visual-grid fade-in">
+      <div class="visual-card">
+        <h4>Video & Motion Thumbnails</h4>
+        <ul>
+          <li>Dark, cinematic framing — pull the most dynamic frame</li>
+          <li>Consistent aspect ratio: 16:9 for video thumbnails</li>
+          <li>Minimal text overlay — let the image speak</li>
+          <li>If text is needed, use DM Sans Bold in White or Ember</li>
+          <li>Subtle vignette or grade to unify thumbnail sets</li>
+          <li>Pair thumbnails in 2-up grids on portfolio pages</li>
+        </ul>
+      </div>
+      <div class="visual-card">
+        <h4>Illustration & Poster Art</h4>
+        <ul>
+          <li>Present at full resolution with clean borders</li>
+          <li>White or Midnight background behind artwork — never busy</li>
+          <li>For portfolio: show the art straight, no mock-ups unless requested</li>
+          <li>When showing print work, photograph on neutral surfaces</li>
+          <li>Color accuracy matters — calibrate displays when possible</li>
+          <li>Hand-drawn line quality is a brand signature — preserve it</li>
+        </ul>
+      </div>
+      <div class="visual-card">
+        <h4>Photography Treatment</h4>
+        <ul>
+          <li>Desaturated, slightly cool grade for behind-the-scenes photos</li>
+          <li>High contrast, editorial feel — not Instagram-filtered</li>
+          <li>Grain is acceptable and reinforces the analog-meets-digital brand</li>
+          <li>Avoid overprocessed HDR or heavy vignettes</li>
+          <li>Crop intentionally — asymmetric compositions over centered shots</li>
+        </ul>
+      </div>
+      <div class="visual-card">
+        <h4>Graphic Elements</h4>
+        <ul>
+          <li>Use thin rules (1px) in Smoke or Border color for dividers</li>
+          <li>Ember accent lines or bars for emphasis (2–3px weight)</li>
+          <li>Rounded corners: 10–16px for cards, 6px for small elements</li>
+          <li>Subtle gradients (radial, low opacity) for atmospheric depth</li>
+          <li>No drop shadows — use border and background contrast instead</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin: 2rem 0 1.5rem;">Layout Grid</h3>
+    <div class="layout-demo fade-in">
+      <h4 style="font-size: var(--fs-small); font-weight: 600; margin-bottom: 0.5rem; color: var(--text-secondary);">12-Column Grid System</h4>
+      <p style="font-size: var(--fs-small); color: var(--text-muted); margin-bottom: 1.5rem;">Max width: 1200px. Gutter: 24px. Margin: 32px (desktop), 16px (mobile).</p>
+
+      <div class="grid-example">
+        <div class="grid-cell span-12"></div>
+      </div>
+      <div class="grid-label">Full Width — 12 columns</div>
+
+      <div class="grid-example" style="margin-top: 0.75rem;">
+        <div class="grid-cell span-8"></div>
+        <div class="grid-cell span-4"></div>
+      </div>
+      <div class="grid-label">Content + Sidebar — 8 / 4</div>
+
+      <div class="grid-example" style="margin-top: 0.75rem;">
+        <div class="grid-cell span-6"></div>
+        <div class="grid-cell span-6"></div>
+      </div>
+      <div class="grid-label">Split — 6 / 6</div>
+
+      <div class="grid-example" style="margin-top: 0.75rem;">
+        <div class="grid-cell span-4"></div>
+        <div class="grid-cell span-4"></div>
+        <div class="grid-cell span-4"></div>
+      </div>
+      <div class="grid-label">Thirds — 4 / 4 / 4</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL PRESENCE -->
+<section id="digital">
+  <div class="container">
+    <div class="section-label">07 — Digital Presence</div>
+    <h2 class="section-title">Where We Live Online</h2>
+    <p class="section-desc">Consistent presentation across all digital touchpoints reinforces brand recognition and professionalism.</p>
+
+    <div class="digital-grid fade-in">
+      <div class="digital-card">
+        <h4>Website Structure</h4>
+        <ul>
+          <li><code>bdfinkstudios.com</code> — Primary site. Video editing, motion graphics, post-production portfolio</li>
+          <li><code>art.bdfinkstudios.com</code> — Illustration, gig posters, and graphic design portfolio</li>
+          <li>Both sites share the same brand identity and naming</li>
+          <li>Cross-link between sites where work overlaps</li>
+        </ul>
+      </div>
+      <div class="digital-card">
+        <h4>Social Media</h4>
+        <ul>
+          <li>Handle: <code>@bdfinkstudios</code> across all platforms</li>
+          <li>Profile photo: consistent logo mark or branded avatar</li>
+          <li>Bio format: "Video Editor · Motion Graphics · Illustrator · 26+ years"</li>
+          <li>Link in bio: primary website URL</li>
+        </ul>
+      </div>
+      <div class="digital-card">
+        <h4>Professional Profiles</h4>
+        <ul>
+          <li>LinkedIn: <code>linkedin.com/in/bdfinkstudios</code></li>
+          <li>Headline should mirror resume: role-focused, specific</li>
+          <li>Banner image: portfolio highlight reel frame or poster art</li>
+          <li>Keep experience section aligned with current resume</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Instrument Serif', serif; font-size: var(--fs-h2); margin: 2rem 0 1rem;">Email Signature</h3>
+    <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-bottom: 1.5rem;">Standard email signature format for all business correspondence.</p>
+
+    <div class="fade-in">
+      <div class="email-sig">
+        <div class="sig-name">Timmy Harris</div>
+        <div class="sig-title">Video Editor · Motion Graphics · Illustration</div>
+        <div class="sig-divider"></div>
+        <div class="sig-details">
+          <strong>BDFink Studios</strong><br>
+          770-713-1374<br>
+          <a href="mailto:bdfinkstudios@gmail.com">bdfinkstudios@gmail.com</a><br>
+          <a href="https://bdfinkstudios.com">bdfinkstudios.com</a> · <a href="https://art.bdfinkstudios.com">art.bdfinkstudios.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">Big Daddy Fink Studios</div>
+    <p>Brand Guidelines · Version 1.0 · March 2026</p>
+  </div>
+</footer>
+
+<script>
+// Copy color hex to clipboard
+function copyColor(card, hex) {
+  navigator.clipboard.writeText(hex).then(() => {
+    card.classList.add('show-copied');
+    setTimeout(() => card.classList.remove('show-copied'), 1200);
+  });
+}
+
+// Scroll-spy for nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function updateNav() {
+  const scrollPos = window.scrollY + 100;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+    if (link) {
+      if (scrollPos >= top && scrollPos < bottom) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    }
+  });
+}
+
+// Fade-in on scroll
+const fadeEls = document.querySelectorAll('.fade-in');
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+fadeEls.forEach(el => fadeObserver.observe(el));
+
+window.addEventListener('scroll', updateNav);
+updateNav();
+</script>
+
+</body>
+</html>

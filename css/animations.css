@@ -1,0 +1,147 @@
+/* ============================================================
+   BDFink Studios — Animations
+   CSS animations that complement GSAP reveal effects
+   ============================================================ */
+
+/* --- Reveal elements (initial hidden state for GSAP) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* When GSAP is not available (fallback) */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* --- Scroll Indicator Pulse --- */
+@keyframes pulseRight {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(8px);
+    opacity: 1;
+  }
+}
+
+
+/* --- Subtle Float (for decorative elements) --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+
+/* --- Accent Line Draw --- */
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.section-label__line {
+  transform-origin: left center;
+}
+
+
+/* --- Logo Glow Pulse --- */
+@keyframes logoPulse {
+  0%, 100% {
+    filter: drop-shadow(0 4px 24px rgba(232, 85, 61, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0 4px 32px rgba(232, 85, 61, 0.25));
+  }
+}
+
+.hero__logo {
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+
+/* --- Card Shimmer (on hover) --- */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+/* --- Form Success --- */
+@keyframes checkmark {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px;
+  text-align: center;
+}
+
+.form-success__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--sage);
+  animation: checkmark 0.5s var(--ease-out) forwards;
+}
+
+.form-success__text {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--white);
+}
+
+.form-success__sub {
+  font-size: var(--text-body);
+  color: var(--ash);
+}
+
+
+/* --- Video Card Hover Overlay --- */
+.video-card__overlay {
+  backdrop-filter: blur(2px);
+}
+
+
+/* --- Illustration Gallery — Stagger offsets --- */
+.illus-card:nth-child(1) { --stagger-delay: 0s; }
+.illus-card:nth-child(2) { --stagger-delay: 0.08s; }
+.illus-card:nth-child(3) { --stagger-delay: 0.16s; }
+.illus-card:nth-child(4) { --stagger-delay: 0.24s; }
+.illus-card:nth-child(5) { --stagger-delay: 0.32s; }
+.illus-card:nth-child(6) { --stagger-delay: 0.4s; }
+.illus-card:nth-child(7) { --stagger-delay: 0.48s; }
+.illus-card:nth-child(8) { --stagger-delay: 0.56s; }
+
+
+/* --- Nav active indicator transition --- */
+.nav__link::after {
+  transition: width 0.4s var(--ease-out);
+}
+
+
+/* --- Pricing card hover lift --- */
+.pricing-card {
+  transition: transform 0.5s var(--ease-out), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.pricing-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card--ember:hover { box-shadow: 0 16px 48px rgba(232, 85, 61, 0.1); }
+.pricing-card--amber:hover { box-shadow: 0 16px 48px rgba(232, 168, 62, 0.1); }
+.pricing-card--sage:hover { box-shadow: 0 16px 48px rgba(124, 174, 138, 0.1); }
+.pricing-card--steel:hover { box-shadow: 0 16px 48px rgba(91, 143, 168, 0.1); }
