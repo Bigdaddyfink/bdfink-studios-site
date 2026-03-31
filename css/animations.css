@@ -7,6 +7,9 @@
 .reveal {
   opacity: 0;
   transform: translateY(30px);
+  will-change: opacity, transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* When GSAP is not available (fallback) */
