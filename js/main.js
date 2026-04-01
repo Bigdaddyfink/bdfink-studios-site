@@ -86,6 +86,10 @@
             duration: 0.6,
             delay: j * 0.08,
             ease: 'power2.out',
+            onComplete: () => {
+              gsap.set(el, { clearProps: 'all' });
+              el.classList.remove('reveal');
+            },
             scrollTrigger: {
               trigger: el,
               start: 'top 90%',
