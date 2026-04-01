@@ -74,32 +74,20 @@
   }
 
   function initVerticalReveals() {
-    panelElements.forEach((panel) => {
-      const reveals = panel.querySelectorAll('.reveal');
-      reveals.forEach((el, j) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay: j * 0.08,
-            ease: 'power2.out',
-            onComplete: () => {
-              gsap.set(el, { clearProps: 'all' });
-              el.classList.remove('reveal');
-            },
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 90%',
-              toggleActions: 'play none none none',
-              once: true,
-            },
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            entry.target.classList.remove('reveal');
+            observer.unobserve(entry.target);
           }
-        );
-      });
-    });
+        });
+      },
+      { threshold: 0.1 }
+    );
+    reveals.forEach((el) => observer.observe(el));
   }
 
   // ── Navigation ──────────────────────────────────────────────
