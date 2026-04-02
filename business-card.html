@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDFink Studios — Business Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --midnight: #0D0F12;
+    --charcoal: #1A1D23;
+    --slate: #2A2E36;
+    --ember: #E8553D;
+    --ember-light: #F2765F;
+    --amber: #E8A83E;
+    --smoke: #8B8F96;
+    --ash: #B4B8BF;
+    --white: #F5F5F3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #18181B;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .page-sub {
+    color: var(--smoke);
+    font-size: 0.875rem;
+    margin-bottom: 3rem;
+  }
+
+  .card-pair {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .card-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--smoke);
+    font-weight: 600;
+  }
+
+  /* Standard business card: 3.5" x 2" at 96dpi = 336px x 192px
+     Scale up 2x for clarity on screen: 672px x 384px */
+  .card {
+    width: 672px;
+    height: 384px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  /* ─── FRONT ─── */
+  .card-front {
+    background: var(--midnight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .card-front::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,85,61,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .card-front::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ember), var(--amber), var(--ember));
+  }
+  .front-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+    padding: 0 2.5rem;
+  }
+  .front-logo {
+    width: 160px;
+    height: auto;
+    flex-shrink: 0;
+  }
+  .front-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .front-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 0.35rem;
+  }
+  .front-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ember);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .front-divider {
+    width: 32px;
+    height: 2px;
+    background: var(--ember);
+    margin: 0.6rem 0;
+    opacity: 0.6;
+  }
+  .front-tagline {
+    font-size: 0.65rem;
+    color: var(--smoke);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  /* ─── BACK ─── */
+  .card-back {
+    background: var(--midnight);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .card-back::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ember), var(--amber), var(--ember));
+  }
+
+  .back-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 2rem 2rem 2.5rem;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .back-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+  .back-role {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ember);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.55rem;
+  }
+  .contact-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-icon svg {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: var(--ember);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .contact-text {
+    font-size: 0.65rem;
+    color: var(--ash);
+    letter-spacing: 0.02em;
+  }
+
+  .back-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .back-qr-area {
+    width: 110px;
+    height: 110px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    background: var(--white);
+    padding: 8px;
+  }
+  .back-qr-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .qr-placeholder {
+    font-size: 0.55rem;
+    color: var(--smoke);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .back-urls {
+    text-align: center;
+  }
+  .back-url {
+    display: block;
+    font-size: 0.6rem;
+    color: var(--ash);
+    letter-spacing: 0.03em;
+    line-height: 1.7;
+  }
+  .back-url span {
+    color: var(--ember);
+  }
+
+  /* ─── PRINT ─── */
+  .print-note {
+    color: var(--smoke);
+    font-size: 0.75rem;
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+
+  @media print {
+    body {
+      background: white;
+      padding: 0.5in;
+    }
+    .card {
+      box-shadow: none;
+      border: 1px solid #ccc;
+      page-break-inside: avoid;
+    }
+    h1, .page-sub, .card-label, .print-note { display: none; }
+    .card-pair { gap: 0.5in; }
+  }
+
+  @media (max-width: 720px) {
+    .card {
+      width: 100%;
+      max-width: 672px;
+      height: auto;
+      aspect-ratio: 3.5 / 2;
+    }
+    .front-logo { width: 100px; }
+    .front-name { font-size: 1.2rem; }
+    .front-content { gap: 1rem; padding: 0 1.5rem; }
+    .back-left { padding: 1.5rem; }
+    .back-right { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Business Card</h1>
+<p class="page-sub">Big Daddy Fink Studios — Standard 3.5" &times; 2"</p>
+
+<div class="card-pair">
+
+  <!-- FRONT -->
+  <div class="card-wrapper">
+    <div class="card-label">Front</div>
+    <div class="card card-front">
+      <div class="front-content">
+        <img src="logo.png" alt="Big Daddy Fink Studios" class="front-logo">
+        <div class="front-text">
+          <div class="front-name">Timmy Harris</div>
+          <div class="front-title">Video Editor · Motion Graphics<br>Illustrator · Graphic Designer</div>
+          <div class="front-divider"></div>
+          <div class="front-tagline">Ideas into motion. Ink into impact.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK -->
+  <div class="card-wrapper">
+    <div class="card-label">Back</div>
+    <div class="card card-back">
+      <div class="back-left">
+        <div class="back-name">Timmy Harris</div>
+        <div class="back-role">BDFink Studios</div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-text">770-713-1374</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-text">bdfinkstudios@gmail.com</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-text">Anderson, SC</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="contact-text">linkedin.com/in/bdfinkstudios</div>
+        </div>
+      </div>
+
+      <div class="back-right">
+        <div class="back-qr-area">
+          <div class="qr-placeholder" style="color: var(--slate); text-align: center; line-height: 1.4;">QR Code<br>to portfolio</div>
+        </div>
+        <div class="back-urls">
+          <span class="back-url"><span>bdfinkstudios</span>.com</span>
+          <span class="back-url"><span>art</span>.bdfinkstudios.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="print-note">
+  Standard business card: 3.5" &times; 2" with 0.125" bleed.<br>
+  Export these designs or take them to your printer as a reference.<br>
+  The QR code area is a placeholder — generate one pointing to bdfinkstudios.com.
+</p>
+
+</body>
+</html>
