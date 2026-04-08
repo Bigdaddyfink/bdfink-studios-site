@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block internal/utility pages
+Disallow: /brand-guidelines.html
+Disallow: /business-card.html
+
+# Sitemap location
+Sitemap: https://bdfinkstudios.com/sitemap.xml
