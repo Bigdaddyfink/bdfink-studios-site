@@ -1,6 +1,7 @@
 /* ============================================================
    BDFink Studios — Responsive Styles
-   Mobile-first vertical layout for screens < 768px
+   Desktop: horizontal GSAP scroll
+   Mobile (<768px): simple vertical scroll, NO GSAP dependency
    ============================================================ */
 
 /* --- Tablet (< 1024px) --- */
@@ -48,37 +49,54 @@
     --panel-padding: 24px;
   }
 
-  /* ── Scroll Wrapper — allow normal vertical scrolling ── */
+  /* ══════════════════════════════════════════════════════════
+     KILL all GSAP / horizontal scroll behavior on mobile.
+     Force everything visible and flowing vertically.
+     ══════════════════════════════════════════════════════════ */
+
+  /* Remove overflow clipping so the page scrolls naturally */
   .scroll-wrapper {
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible !important;
+    height: auto !important;
   }
 
-  /* Switch from horizontal to vertical layout */
+  /* Force vertical stacking — override any GSAP inline styles */
   .panels {
-    display: flex;
-    flex-direction: column;
-    width: 100% !important; /* Override any GSAP inline styles */
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    transform: none !important;
   }
 
+  /* Make ALL content visible immediately — no waiting for GSAP */
+  .reveal,
+  .reveal.revealed,
+  .revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Panels stack vertically */
   .panel {
-    width: 100%;
+    width: 100% !important;
     min-height: auto;
     padding: 64px var(--panel-padding);
-    padding-top: calc(64px + 72px); /* First panel nav offset */
-    flex-shrink: 1; /* Allow panels to shrink on mobile */
+    padding-top: calc(64px + 72px); /* nav offset for first panel */
+    flex-shrink: 1;
+    transform: none !important;
   }
 
   .panel + .panel {
     padding-top: 64px;
   }
 
-  /* ── Global iframe overflow prevention ── */
+  /* ── Global iframe overflow fix ── */
   iframe {
     max-width: 100% !important;
   }
 
-  /* Navigation */
+  /* ── Navigation ── */
   .nav {
     padding: 12px 16px;
   }
@@ -104,7 +122,7 @@
     height: 32px;
   }
 
-  /* Hero */
+  /* ── Hero ── */
   .hero__logo {
     width: 200px;
   }
@@ -125,7 +143,7 @@
     display: flex;
   }
 
-  /* Video */
+  /* ── Video ── */
   .video-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -135,7 +153,7 @@
     border-radius: 8px;
   }
 
-  /* Illustration Feature */
+  /* ── Illustration Feature ── */
   .illus-feature {
     flex-direction: column;
     gap: 32px;
@@ -145,13 +163,13 @@
     max-width: 100%;
   }
 
-  /* Illustration Gallery */
+  /* ── Illustration Gallery ── */
   .illus-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
-  /* Pricing */
+  /* ── Pricing ── */
   .pricing-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -161,7 +179,7 @@
     padding: 24px 20px;
   }
 
-  /* Contact */
+  /* ── Contact ── */
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -171,7 +189,7 @@
     font-size: clamp(2rem, 8vw, 3rem);
   }
 
-  /* Lightbox */
+  /* ── Lightbox ── */
   .lightbox__prev,
   .lightbox__next {
     width: 40px;
@@ -186,26 +204,26 @@
     height: 56vw;
   }
 
-  /* Browser frame */
+  /* ── Browser frame ── */
   .web-showcase {
     max-width: 100%;
   }
 
-  /* ── Reels — stack vertically, proper sizing ── */
+  /* ── Reels — full-width stack ── */
   .reel-grid {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
   }
 
   .reel-embed {
     max-width: 100%;
     width: 100%;
-    height: auto;         /* Remove fixed 560px height */
-    aspect-ratio: auto;   /* Let content determine ratio */
+    height: auto;
   }
 
   .reel-embed iframe {
-    min-height: 480px;    /* Reduce from 560px, still tall enough for IG */
+    min-height: 480px;
   }
 
   .reel-embed--landscape {
@@ -213,16 +231,16 @@
     flex: 1 1 100%;
   }
 
-  /* ── Portrait & Square reel embeds — override specificity ── */
+  /* Override the narrow desktop max-widths for portrait/square */
   .reel-embed--portrait {
-    max-width: 80%;       /* Wider than 220px on mobile */
+    max-width: 80%;
     width: 80%;
     flex: 0 0 auto;
     aspect-ratio: 9 / 16;
   }
 
   .reel-embed--portrait iframe {
-    min-height: unset;    /* Let aspect ratio control height */
+    min-height: unset;
   }
 
   .reel-embed--square {
@@ -236,7 +254,7 @@
     min-height: unset;
   }
 
-  /* ── Social Media Management — stack videos ── */
+  /* ── Social Media — stack videos vertically ── */
   .social-brands {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -290,7 +308,6 @@
     justify-content: center;
   }
 
-  /* Portrait reels wider on small phones for visibility */
   .reel-embed--portrait {
     max-width: 90%;
     width: 90%;
@@ -301,12 +318,10 @@
     width: 95%;
   }
 
-  /* Further reduce reel heights */
   .reel-embed iframe {
     min-height: 400px;
   }
 
-  /* Social videos smaller on tiny screens */
   .social-video-embed {
     max-height: 280px;
   }

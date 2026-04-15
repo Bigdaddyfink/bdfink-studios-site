@@ -1,6 +1,7 @@
 /* ============================================================
    BDFink Studios — Main JavaScript
-   GSAP Horizontal Scroll, Navigation, Lazy Loading
+   Desktop: GSAP Horizontal Scroll
+   Mobile: Simple vertical scroll (no GSAP scroll magic)
    ============================================================ */
 
 (function () {
@@ -16,33 +17,43 @@
   let panelElements = [];
   let mainTrigger = null;
 
-  // ── GSAP Horizontal Scroll ──────────────────────────────────
-  function initHorizontalScroll() {
+  // ── Mobile Setup (no GSAP, just clean vertical layout) ──────
+  function initMobile() {
+    panelElements = Array.from(document.querySelectorAll('.panel'));
+    const wrapper = document.getElementById('panels');
+    const scrollWrapper = document.getElementById('scrollWrapper');
+
+    // Force vertical layout
+    wrapper.style.cssText = 'display:flex; flex-direction:column; width:100%; transform:none;';
+
+    // Allow vertical scrolling
+    if (scrollWrapper) {
+      scrollWrapper.style.cssText = 'overflow:visible; height:auto;';
+    }
+
+    // Make ALL content visible immediately — no animations
+    document.querySelectorAll('.reveal').forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.classList.add('revealed');
+      el.classList.remove('reveal');
+    });
+  }
+
+  // ── Desktop: GSAP Horizontal Scroll ─────────────────────────
+  function initDesktop() {
     gsap.registerPlugin(ScrollTrigger);
 
     panelElements = gsap.utils.toArray('.panel');
     const wrapper = document.getElementById('panels');
     const scrollWrapper = document.getElementById('scrollWrapper');
 
-    if (isMobile()) {
-      wrapper.style.flexDirection = 'column';
-      wrapper.style.width = '100%';
-      // Clear any leftover GSAP transforms from desktop
-      gsap.set(wrapper, { x: 0, clearProps: 'transform' });
-      // Ensure scroll wrapper allows vertical scrolling
-      if (scrollWrapper) {
-        scrollWrapper.style.overflow = 'visible';
-      }
-      initVerticalReveals();
-      return;
-    }
-
-    // Desktop: restore overflow hidden for horizontal scroll
+    // Restore desktop styles
     if (scrollWrapper) {
       scrollWrapper.style.overflow = 'hidden';
     }
+    wrapper.style.cssText = '';
 
-    // Desktop: horizontal scroll via GSAP ScrollTrigger
     const totalWidth = wrapper.scrollWidth;
     const viewportWidth = window.innerWidth;
 
@@ -83,23 +94,6 @@
         );
       });
     });
-  }
-
-  function initVerticalReveals() {
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            entry.target.classList.remove('reveal');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    reveals.forEach((el) => observer.observe(el));
   }
 
   // ── Navigation ──────────────────────────────────────────────
@@ -184,9 +178,6 @@
 
   function updateActiveNav(index) {
     const navLinks = document.querySelectorAll('.nav__link');
-    // Map panel indices to nav link indices
-    // Panels: 0=Hero, 1=VideoReel, 2=VideoGallery, 3=Reels, 4=AIVideo, 5=IllusFeature, 6=IllusGallery, 7=WebDesign, 8=SocialMgmt, 9=Pricing, 10=ShopCTA, 11=Contact
-    // Nav:    0=Home, 1=Video,     1=Video,        1=Video, 2=AIVideo, 3=Illustration,  3=Illustration,  4=Web,       5=Social,     6=Pricing, 7=Shop,    8=Contact
     const sectionMap = [0, 1, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8];
     const navIndex = sectionMap[index] !== undefined ? sectionMap[index] : 0;
 
@@ -200,9 +191,10 @@
     const canvas = document.getElementById('heroParticles');
     if (!canvas) return;
 
+    // Reduce particles on mobile for performance
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const count = 40;
+    const count = isMobile() ? 15 : 40;
 
     function resize() {
       const hero = canvas.parentElement;
@@ -220,7 +212,6 @@
           speedX: (Math.random() - 0.5) * 0.3,
           speedY: (Math.random() - 0.5) * 0.2,
           opacity: Math.random() * 0.3 + 0.05,
-          // Use brand accent colors randomly
           color: ['232,85,61', '232,168,62', '91,143,168'][
             Math.floor(Math.random() * 3)
           ],
@@ -235,7 +226,6 @@
         p.x += p.speedX;
         p.y += p.speedY;
 
-        // Wrap around edges
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
@@ -303,29 +293,31 @@
       mainTrigger = null;
 
       const wrapper = document.getElementById('panels');
-      gsap.set(wrapper, { x: 0, clearProps: 'transform' });
-      wrapper.style.flexDirection = '';
-      wrapper.style.width = '';
+      gsap.set(wrapper, { clearProps: 'all' });
+      wrapper.style.cssText = '';
 
-      // Only reset elements still waiting to be revealed (not already shown)
-      document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => {
-        gsap.set(el, { opacity: 0, y: 30 });
-      });
-
-      // On mobile, also make sure already-revealed elements stay visible
       if (isMobile()) {
+        initMobile();
+      } else {
+        // Reset reveal classes for desktop re-animation
         document.querySelectorAll('.revealed').forEach((el) => {
-          gsap.set(el, { opacity: 1, y: 0 });
+          el.classList.add('reveal');
+          el.classList.remove('revealed');
+          el.style.opacity = '';
+          el.style.transform = '';
         });
+        initHeroEntrance();
+        initDesktop();
       }
 
-      initHorizontalScroll();
       initNavigation();
     }, 300);
   }
 
-  // ── Hero Entrance (animate on load, no scroll needed) ───────
+  // ── Hero Entrance (animate on load, desktop only) ───────────
   function initHeroEntrance() {
+    if (isMobile()) return; // CSS handles visibility on mobile
+
     const heroReveals = document.querySelectorAll('.panel--hero .reveal');
     heroReveals.forEach((el, i) => {
       gsap.fromTo(
@@ -344,8 +336,15 @@
 
   // ── Initialize ──────────────────────────────────────────────
   function init() {
-    initHeroEntrance();
-    initHorizontalScroll();
+    if (isMobile()) {
+      // MOBILE: No GSAP scroll, just plain vertical page
+      initMobile();
+    } else {
+      // DESKTOP: Full GSAP horizontal scroll experience
+      initHeroEntrance();
+      initDesktop();
+    }
+
     initNavigation();
     initLazyVideos();
     initHeroParticles();
