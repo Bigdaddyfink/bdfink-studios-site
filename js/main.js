@@ -22,12 +22,24 @@
 
     panelElements = gsap.utils.toArray('.panel');
     const wrapper = document.getElementById('panels');
+    const scrollWrapper = document.getElementById('scrollWrapper');
 
     if (isMobile()) {
       wrapper.style.flexDirection = 'column';
       wrapper.style.width = '100%';
+      // Clear any leftover GSAP transforms from desktop
+      gsap.set(wrapper, { x: 0, clearProps: 'transform' });
+      // Ensure scroll wrapper allows vertical scrolling
+      if (scrollWrapper) {
+        scrollWrapper.style.overflow = 'visible';
+      }
       initVerticalReveals();
       return;
+    }
+
+    // Desktop: restore overflow hidden for horizontal scroll
+    if (scrollWrapper) {
+      scrollWrapper.style.overflow = 'hidden';
     }
 
     // Desktop: horizontal scroll via GSAP ScrollTrigger
@@ -291,14 +303,21 @@
       mainTrigger = null;
 
       const wrapper = document.getElementById('panels');
-      gsap.set(wrapper, { x: 0 });
+      gsap.set(wrapper, { x: 0, clearProps: 'transform' });
       wrapper.style.flexDirection = '';
       wrapper.style.width = '';
 
-      // Reset reveal elements
-      document.querySelectorAll('.reveal').forEach((el) => {
+      // Only reset elements still waiting to be revealed (not already shown)
+      document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => {
         gsap.set(el, { opacity: 0, y: 30 });
       });
+
+      // On mobile, also make sure already-revealed elements stay visible
+      if (isMobile()) {
+        document.querySelectorAll('.revealed').forEach((el) => {
+          gsap.set(el, { opacity: 1, y: 0 });
+        });
+      }
 
       initHorizontalScroll();
       initNavigation();

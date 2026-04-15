@@ -48,11 +48,17 @@
     --panel-padding: 24px;
   }
 
+  /* ── Scroll Wrapper — allow normal vertical scrolling ── */
+  .scroll-wrapper {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
   /* Switch from horizontal to vertical layout */
   .panels {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100% !important; /* Override any GSAP inline styles */
   }
 
   .panel {
@@ -60,10 +66,16 @@
     min-height: auto;
     padding: 64px var(--panel-padding);
     padding-top: calc(64px + 72px); /* First panel nav offset */
+    flex-shrink: 1; /* Allow panels to shrink on mobile */
   }
 
   .panel + .panel {
     padding-top: 64px;
+  }
+
+  /* ── Global iframe overflow prevention ── */
+  iframe {
+    max-width: 100% !important;
   }
 
   /* Navigation */
@@ -179,7 +191,7 @@
     max-width: 100%;
   }
 
-  /* Reels - stack vertically on mobile */
+  /* ── Reels — stack vertically, proper sizing ── */
   .reel-grid {
     flex-direction: column;
     align-items: center;
@@ -188,6 +200,12 @@
   .reel-embed {
     max-width: 100%;
     width: 100%;
+    height: auto;         /* Remove fixed 560px height */
+    aspect-ratio: auto;   /* Let content determine ratio */
+  }
+
+  .reel-embed iframe {
+    min-height: 480px;    /* Reduce from 560px, still tall enough for IG */
   }
 
   .reel-embed--landscape {
@@ -195,7 +213,30 @@
     flex: 1 1 100%;
   }
 
-  /* Social Media Management */
+  /* ── Portrait & Square reel embeds — override specificity ── */
+  .reel-embed--portrait {
+    max-width: 80%;       /* Wider than 220px on mobile */
+    width: 80%;
+    flex: 0 0 auto;
+    aspect-ratio: 9 / 16;
+  }
+
+  .reel-embed--portrait iframe {
+    min-height: unset;    /* Let aspect ratio control height */
+  }
+
+  .reel-embed--square {
+    max-width: 85%;
+    width: 85%;
+    flex: 0 0 auto;
+    aspect-ratio: 1;
+  }
+
+  .reel-embed--square iframe {
+    min-height: unset;
+  }
+
+  /* ── Social Media Management — stack videos ── */
   .social-brands {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -203,6 +244,16 @@
 
   .social-brand-card {
     padding: 24px;
+  }
+
+  .social-brand-card__videos {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .social-video-embed {
+    max-height: 350px;
+    width: 100%;
   }
 }
 
@@ -237,5 +288,26 @@
   .form-submit {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Portrait reels wider on small phones for visibility */
+  .reel-embed--portrait {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .reel-embed--square {
+    max-width: 95%;
+    width: 95%;
+  }
+
+  /* Further reduce reel heights */
+  .reel-embed iframe {
+    min-height: 400px;
+  }
+
+  /* Social videos smaller on tiny screens */
+  .social-video-embed {
+    max-height: 280px;
   }
 }
