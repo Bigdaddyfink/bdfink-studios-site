@@ -223,31 +223,26 @@ a:hover {
 }
 
 
-/* --- Scroll Wrapper & Panels --- */
-.scroll-wrapper {
-  overflow: hidden;
-}
-
-.panels {
-  display: flex;
-  width: fit-content;
-}
-
+/* --- Vertical Section Layout --- */
 .panel {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--panel-padding);
-  padding-top: calc(var(--panel-padding) + 72px); /* Account for nav */
+  padding: 100px var(--panel-padding);
   position: relative;
-  flex-shrink: 0;
+}
+
+.panel--hero {
+  min-height: 100vh;
+  padding-top: calc(var(--panel-padding) + 72px);
 }
 
 .panel__content {
   max-width: 900px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .panel__content--wide {
@@ -264,6 +259,14 @@ a:hover {
 
 .panel__title--large {
   font-size: var(--text-hero);
+}
+
+.panel__subtitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--white);
+  margin-top: 72px;
+  margin-bottom: 24px;
 }
 
 .panel__caption {
@@ -421,6 +424,7 @@ a:hover {
 
 .hero__scroll-hint {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 12px;
   font-family: var(--font-body);
@@ -428,7 +432,7 @@ a:hover {
   font-weight: 400;
   letter-spacing: 0.1em;
   color: var(--smoke);
-  animation: pulseRight 2s ease-in-out infinite;
+  animation: pulseDown 2s ease-in-out infinite;
 }
 
 .hero__scroll-hint svg {
@@ -436,9 +440,9 @@ a:hover {
   height: 20px;
 }
 
-@keyframes pulseRight {
-  0%, 100% { transform: translateX(0); opacity: 0.6; }
-  50% { transform: translateX(8px); opacity: 1; }
+@keyframes pulseDown {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
 }
 
 .hero__accent-line {
@@ -1082,7 +1086,7 @@ a:hover {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-top: 32px;
 }

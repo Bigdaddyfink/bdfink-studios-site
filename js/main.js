@@ -1,7 +1,6 @@
 /* ============================================================
    BDFink Studios — Main JavaScript
-   Desktop: GSAP Horizontal Scroll
-   Mobile: Simple vertical scroll (no GSAP scroll magic)
+   Vertical Scroll, GSAP Reveals, Navigation
    ============================================================ */
 
 (function () {
@@ -10,114 +9,83 @@
   // Initialize Lucide icons
   lucide.createIcons();
 
-  const isMobile = () => window.innerWidth <= 768;
-
-  // Store references for navigation
-  let scrollTween = null;
-  let panelElements = [];
-  let mainTrigger = null;
-
-  // ── Mobile Setup (no GSAP, just clean vertical layout) ──────
-  function initMobile() {
-    panelElements = Array.from(document.querySelectorAll('.panel'));
-    const wrapper = document.getElementById('panels');
-    const scrollWrapper = document.getElementById('scrollWrapper');
-
-    // Force vertical layout
-    wrapper.style.cssText = 'display:flex; flex-direction:column; width:100%; transform:none;';
-
-    // Allow vertical scrolling
-    if (scrollWrapper) {
-      scrollWrapper.style.cssText = 'overflow:visible; height:auto;';
-    }
-
-    // Make ALL content visible immediately — no animations
-    document.querySelectorAll('.reveal').forEach((el) => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.classList.add('revealed');
-      el.classList.remove('reveal');
-    });
-  }
-
-  // ── Desktop: GSAP Horizontal Scroll ─────────────────────────
-  function initDesktop() {
+  // ── GSAP Vertical Scroll Reveals ────────────────────────────
+  function initScrollReveals() {
     gsap.registerPlugin(ScrollTrigger);
 
-    panelElements = gsap.utils.toArray('.panel');
-    const wrapper = document.getElementById('panels');
-    const scrollWrapper = document.getElementById('scrollWrapper');
-
-    // Restore desktop styles
-    if (scrollWrapper) {
-      scrollWrapper.style.overflow = 'hidden';
-    }
-    wrapper.style.cssText = '';
-
-    const totalWidth = wrapper.scrollWidth;
-    const viewportWidth = window.innerWidth;
-
-    scrollTween = gsap.to(wrapper, {
-      x: -(totalWidth - viewportWidth),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.scroll-wrapper',
-        pin: true,
-        scrub: 1,
-        end: () => '+=' + (totalWidth - viewportWidth),
-        invalidateOnRefresh: true,
-      },
+    // Animate hero elements on page load (staggered entrance)
+    const heroReveals = document.querySelectorAll('.panel--hero .reveal');
+    heroReveals.forEach((el, i) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.2 + i * 0.15,
+          ease: 'power2.out',
+          onComplete: () => {
+            el.classList.add('revealed');
+            el.classList.remove('reveal');
+          },
+        }
+      );
     });
 
-    mainTrigger = scrollTween.scrollTrigger;
-
-    // Reveal animations using containerAnimation
-    panelElements.forEach((panel) => {
-      const reveals = panel.querySelectorAll('.reveal');
-      reveals.forEach((el, j) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay: j * 0.08,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el,
-              containerAnimation: scrollTween,
-              start: 'left 80%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
+    // Animate all other .reveal elements on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach((el) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+          onComplete: () => {
+            el.classList.add('revealed');
+            el.classList.remove('reveal');
+          },
+        }
+      );
     });
   }
 
   // ── Navigation ──────────────────────────────────────────────
   function initNavigation() {
     const navLinks = document.querySelectorAll(
-      '.nav__link, .nav__mobile-link, .pricing-card__cta, .inline-link'
+      '.nav__link, .nav__mobile-link, .pricing-card__cta, .inline-link, .care-plan__cta'
     );
     const mobileToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileClose = document.getElementById('navClose');
 
+    // Smooth scroll to anchor
     navLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const sectionIndex = parseInt(link.dataset.section, 10);
-        if (!isNaN(sectionIndex)) {
-          scrollToPanel(sectionIndex);
-        }
-        if (mobileMenu.classList.contains('open')) {
-          mobileMenu.classList.remove('open');
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+          // Close mobile menu
+          if (mobileMenu && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+          }
         }
       });
     });
 
+    // Mobile menu toggle
     if (mobileToggle) {
       mobileToggle.addEventListener('click', () => {
         mobileMenu.classList.add('open');
@@ -130,60 +98,26 @@
       });
     }
 
-    // Update active nav on scroll (desktop only)
-    if (!isMobile()) {
-      ScrollTrigger.create({
-        trigger: '.scroll-wrapper',
-        start: 'top top',
-        end: () =>
-          '+=' +
-          (document.getElementById('panels').scrollWidth - window.innerWidth),
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const currentIndex = Math.round(progress * (panelElements.length - 1));
-          updateActiveNav(currentIndex);
-        },
-      });
-    }
-  }
+    // Active nav tracking based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    const desktopLinks = document.querySelectorAll('.nav__link');
 
-  function scrollToPanel(index) {
-    if (isMobile()) {
-      const panel = panelElements[index];
-      if (panel) {
-        panel.scrollIntoView({ behavior: 'smooth' });
-      }
-      return;
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            desktopLinks.forEach((link) => {
+              const linkHref = link.getAttribute('href');
+              link.classList.toggle('active', linkHref === '#' + id);
+            });
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
 
-    if (!mainTrigger || !panelElements[index]) return;
-
-    const targetPanel = panelElements[index];
-    const wrapper = document.getElementById('panels');
-    const totalWidth = wrapper.scrollWidth;
-    const viewportWidth = window.innerWidth;
-    const maxScroll = totalWidth - viewportWidth;
-
-    const panelLeft = targetPanel.offsetLeft;
-    const scrollProgress = Math.min(panelLeft / maxScroll, 1);
-    const scrollTarget =
-      mainTrigger.start + scrollProgress * (mainTrigger.end - mainTrigger.start);
-
-    gsap.to(window, {
-      scrollTo: { y: scrollTarget, autoKill: false },
-      duration: 1.2,
-      ease: 'power2.inOut',
-    });
-  }
-
-  function updateActiveNav(index) {
-    const navLinks = document.querySelectorAll('.nav__link');
-    const sectionMap = [0, 1, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8];
-    const navIndex = sectionMap[index] !== undefined ? sectionMap[index] : 0;
-
-    navLinks.forEach((link, i) => {
-      link.classList.toggle('active', i === navIndex);
-    });
+    sections.forEach((section) => observer.observe(section));
   }
 
   // ── Hero Particles ──────────────────────────────────────────
@@ -191,10 +125,10 @@
     const canvas = document.getElementById('heroParticles');
     if (!canvas) return;
 
-    // Reduce particles on mobile for performance
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const count = isMobile() ? 15 : 40;
+    const isMobile = window.innerWidth <= 768;
+    const count = isMobile ? 15 : 40;
 
     function resize() {
       const hero = canvas.parentElement;
@@ -282,73 +216,12 @@
     });
   }
 
-  // ── Resize Handler ──────────────────────────────────────────
-  let resizeTimeout;
-  function handleResize() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      // Kill all existing ScrollTriggers
-      ScrollTrigger.getAll().forEach((st) => st.kill());
-      scrollTween = null;
-      mainTrigger = null;
-
-      const wrapper = document.getElementById('panels');
-      gsap.set(wrapper, { clearProps: 'all' });
-      wrapper.style.cssText = '';
-
-      if (isMobile()) {
-        initMobile();
-      } else {
-        // Reset reveal classes for desktop re-animation
-        document.querySelectorAll('.revealed').forEach((el) => {
-          el.classList.add('reveal');
-          el.classList.remove('revealed');
-          el.style.opacity = '';
-          el.style.transform = '';
-        });
-        initHeroEntrance();
-        initDesktop();
-      }
-
-      initNavigation();
-    }, 300);
-  }
-
-  // ── Hero Entrance (animate on load, desktop only) ───────────
-  function initHeroEntrance() {
-    if (isMobile()) return; // CSS handles visibility on mobile
-
-    const heroReveals = document.querySelectorAll('.panel--hero .reveal');
-    heroReveals.forEach((el, i) => {
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.2 + i * 0.15,
-          ease: 'power2.out',
-        }
-      );
-    });
-  }
-
   // ── Initialize ──────────────────────────────────────────────
   function init() {
-    if (isMobile()) {
-      // MOBILE: No GSAP scroll, just plain vertical page
-      initMobile();
-    } else {
-      // DESKTOP: Full GSAP horizontal scroll experience
-      initHeroEntrance();
-      initDesktop();
-    }
-
+    initScrollReveals();
     initNavigation();
     initLazyVideos();
     initHeroParticles();
-    window.addEventListener('resize', handleResize);
   }
 
   if (document.readyState === 'loading') {

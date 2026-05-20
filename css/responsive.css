@@ -1,7 +1,6 @@
 /* ============================================================
    BDFink Studios — Responsive Styles
-   Desktop: horizontal GSAP scroll
-   Mobile (<768px): simple vertical scroll, NO GSAP dependency
+   Simple breakpoints for vertical scroll layout
    ============================================================ */
 
 /* --- Tablet (< 1024px) --- */
@@ -11,7 +10,7 @@
   }
 
   .pricing-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 
@@ -42,58 +41,18 @@
   }
 }
 
-
 /* --- Mobile (< 768px) --- */
 @media (max-width: 768px) {
   :root {
     --panel-padding: 24px;
   }
 
-  /* ══════════════════════════════════════════════════════════
-     KILL all GSAP / horizontal scroll behavior on mobile.
-     Force everything visible and flowing vertically.
-     ══════════════════════════════════════════════════════════ */
-
-  /* Remove overflow clipping so the page scrolls naturally */
-  .scroll-wrapper {
-    overflow: visible !important;
-    height: auto !important;
-  }
-
-  /* Force vertical stacking — override any GSAP inline styles */
-  .panels {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    transform: none !important;
-  }
-
-  /* Make ALL content visible immediately — no waiting for GSAP */
-  .reveal,
-  .reveal.revealed,
-  .revealed {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  /* Panels stack vertically */
   .panel {
-    width: 100% !important;
-    min-height: auto;
-    padding: 64px var(--panel-padding);
-    padding-top: calc(64px + 72px); /* nav offset for first panel */
-    flex-shrink: 1;
-    transform: none !important;
+    padding: 80px var(--panel-padding);
   }
 
-  .panel + .panel {
-    padding-top: 64px;
-  }
-
-  /* ── Global iframe overflow fix ── */
-  iframe {
-    max-width: 100% !important;
+  .panel--hero {
+    padding-top: calc(var(--panel-padding) + 72px);
   }
 
   /* ── Navigation ── */
@@ -135,29 +94,21 @@
     margin-bottom: 40px;
   }
 
-  .hero__scroll-hint span {
-    display: inline;
+  /* ── Global iframe ── */
+  iframe {
+    max-width: 100%;
   }
 
-  .hero__scroll-hint {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: pulseDown 2s ease-in-out infinite;
+  /* ── Panel subtitle ── */
+  .panel__subtitle {
+    font-size: var(--text-h2);
+    margin-top: 48px;
   }
 
-  .hero__scroll-hint svg {
-    transform: rotate(90deg);
-  }
-
-  /* ── Video ── */
+  /* ── Video Grid ── */
   .video-grid {
     grid-template-columns: 1fr;
     gap: 16px;
-  }
-
-  .video-player {
-    border-radius: 8px;
   }
 
   /* ── Illustration Feature ── */
@@ -186,6 +137,7 @@
     padding: 24px 20px;
   }
 
+  /* ── Care Plan ── */
   .care-plan {
     flex-direction: column;
     text-align: center;
@@ -227,7 +179,7 @@
     max-width: 100%;
   }
 
-  /* ── Reels — full-width stack ── */
+  /* ── Reels ── */
   .reel-grid {
     flex-direction: column;
     align-items: center;
@@ -240,39 +192,17 @@
     height: auto;
   }
 
-  .reel-embed iframe {
-    min-height: 480px;
-  }
-
-  .reel-embed--landscape {
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
-
-  /* Override the narrow desktop max-widths for portrait/square */
   .reel-embed--portrait {
     max-width: 80%;
     width: 80%;
-    flex: 0 0 auto;
-    aspect-ratio: 9 / 16;
-  }
-
-  .reel-embed--portrait iframe {
-    min-height: unset;
   }
 
   .reel-embed--square {
     max-width: 85%;
     width: 85%;
-    flex: 0 0 auto;
-    aspect-ratio: 1;
   }
 
-  .reel-embed--square iframe {
-    min-height: unset;
-  }
-
-  /* ── Social Media — stack videos vertically ── */
+  /* ── Social Media ── */
   .social-brands {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -293,19 +223,10 @@
   }
 }
 
-
 /* --- Small Mobile (< 480px) --- */
 @media (max-width: 480px) {
   .hero__logo {
     width: 160px;
-  }
-
-  .hero__logo-container {
-    margin-bottom: 32px;
-  }
-
-  .section-label {
-    margin-bottom: 24px;
   }
 
   .panel__title {
@@ -336,17 +257,7 @@
     width: 95%;
   }
 
-  .reel-embed iframe {
-    min-height: 400px;
-  }
-
   .social-video-embed {
     max-height: 280px;
   }
-}
-
-/* ── Mobile-only keyframes ── */
-@keyframes pulseDown {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(8px); opacity: 1; }
 }

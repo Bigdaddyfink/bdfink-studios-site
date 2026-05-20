@@ -115,8 +115,6 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -132,15 +130,14 @@
       <span class="nav__logo-text">B D <span class="accent">Fink</span> Studios</span>
     </div>
     <div class="nav__links">
-      <a href="#hero" class="nav__link active" data-section="0">Home</a>
-      <a href="#video-reel" class="nav__link" data-section="1">Video</a>
-      <a href="#ai-video" class="nav__link" data-section="4">AI Video</a>
-      <a href="#illustration-feature" class="nav__link" data-section="5">Illustration</a>
-      <a href="#web-design" class="nav__link" data-section="7">Web</a>
-      <a href="#social-mgmt" class="nav__link" data-section="8">Social</a>
-      <a href="#pricing" class="nav__link" data-section="9">Pricing</a>
-      <a href="#shop-cta" class="nav__link" data-section="10">Shop</a>
-      <a href="#contact" class="nav__link" data-section="11">Contact</a>
+      <a href="#hero" class="nav__link active">Home</a>
+      <a href="#video" class="nav__link">Video</a>
+      <a href="#illustration" class="nav__link">Illustration</a>
+      <a href="#web-design" class="nav__link">Web</a>
+      <a href="#social-mgmt" class="nav__link">Social</a>
+      <a href="#pricing" class="nav__link">Pricing</a>
+      <a href="#shop-cta" class="nav__link">Shop</a>
+      <a href="#contact" class="nav__link">Contact</a>
     </div>
     <button class="nav__mobile-toggle" id="navToggle" aria-label="Toggle navigation">
       <i data-lucide="menu"></i>
@@ -152,615 +149,589 @@
     <button class="nav__mobile-close" id="navClose" aria-label="Close navigation">
       <i data-lucide="x"></i>
     </button>
-    <a href="#hero" class="nav__mobile-link" data-section="0">Home</a>
-    <a href="#video-reel" class="nav__mobile-link" data-section="1">Video</a>
-    <a href="#ai-video" class="nav__mobile-link" data-section="4">AI Video</a>
-    <a href="#illustration-feature" class="nav__mobile-link" data-section="5">Illustration</a>
-    <a href="#web-design" class="nav__mobile-link" data-section="7">Web</a>
-    <a href="#social-mgmt" class="nav__mobile-link" data-section="8">Social</a>
-    <a href="#pricing" class="nav__mobile-link" data-section="9">Pricing</a>
-    <a href="#shop-cta" class="nav__mobile-link" data-section="10">Shop</a>
-    <a href="#contact" class="nav__mobile-link" data-section="11">Contact</a>
+    <a href="#hero" class="nav__mobile-link">Home</a>
+    <a href="#video" class="nav__mobile-link">Video</a>
+    <a href="#illustration" class="nav__mobile-link">Illustration</a>
+    <a href="#web-design" class="nav__mobile-link">Web</a>
+    <a href="#social-mgmt" class="nav__mobile-link">Social</a>
+    <a href="#pricing" class="nav__mobile-link">Pricing</a>
+    <a href="#shop-cta" class="nav__mobile-link">Shop</a>
+    <a href="#contact" class="nav__mobile-link">Contact</a>
   </div>
 
-  <!-- ========== HORIZONTAL SCROLL WRAPPER ========== -->
-  <div class="scroll-wrapper" id="scrollWrapper">
-    <div class="panels" id="panels">
+  <!-- ========== MAIN CONTENT ========== -->
+  <main>
 
-      <!-- ===== PANEL 1: HERO ===== -->
-      <section class="panel panel--hero" id="hero">
-        <canvas class="hero__particles" id="heroParticles"></canvas>
-        <div class="panel__content">
-          <div class="hero__logo-container reveal">
-            <img src="logo.png" alt="Big Daddy Fink Studios" class="hero__logo">
-          </div>
-          <h1 class="hero__tagline reveal">
-            We transform ideas into motion<br>
-            <span class="accent">and ink into impact.</span>
-          </h1>
-          <p class="hero__subtitle reveal">
-            Video Editing &middot; Motion Graphics &middot; Illustration &middot; Web Design
-          </p>
-          <div class="hero__scroll-hint reveal">
-            <span>Scroll to explore</span>
-            <i data-lucide="arrow-right"></i>
-          </div>
+    <!-- ===== HERO ===== -->
+    <section class="panel panel--hero" id="hero">
+      <canvas class="hero__particles" id="heroParticles"></canvas>
+      <div class="panel__content">
+        <div class="hero__logo-container reveal">
+          <img src="logo.png" alt="Big Daddy Fink Studios" class="hero__logo">
         </div>
-        <div class="hero__accent-line"></div>
-      </section>
-
-      <!-- ===== PANEL 2: VIDEO SHOWREEL ===== -->
-      <section class="panel panel--video-reel" id="video-reel">
-        <div class="panel__content">
-          <div class="section-label reveal">
-            <span class="section-label__number">01</span>
-            <span class="section-label__text">Video & Motion</span>
-            <div class="section-label__line"></div>
-          </div>
-          <h2 class="panel__title reveal">Featured Work</h2>
-          <div class="video-player reveal">
-            <iframe src="https://player.vimeo.com/video/1129393082?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1280" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox" style="width:100%;height:100%;border:none;"></iframe>
-          </div>
-          <p class="panel__caption reveal">
-            26+ years of crafting compelling video content for brands, agencies, and artists.
-            From corporate narratives to kinetic typography — every frame tells a story.
-          </p>
+        <h1 class="hero__tagline reveal">
+          We transform ideas into motion<br>
+          <span class="accent">and ink into impact.</span>
+        </h1>
+        <p class="hero__subtitle reveal">
+          Video Editing &middot; Motion Graphics &middot; Illustration &middot; Web Design
+        </p>
+        <div class="hero__scroll-hint reveal">
+          <span>Scroll to explore</span>
+          <i data-lucide="arrow-down"></i>
         </div>
-      </section>
+      </div>
+      <div class="hero__accent-line"></div>
+    </section>
 
-      <!-- ===== PANEL 3: VIDEO GALLERY ===== -->
-      <section class="panel panel--video-gallery" id="video-gallery">
-        <div class="panel__content">
-          <h2 class="panel__title reveal">Selected Work</h2>
-          <div class="video-grid">
-            <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129393082">
-              <div class="video-card__thumb">
-                <img src="assets/images/thumbnails/video-01.jpg" alt="Explore Asheville Annual Meeting Re-Cap" loading="lazy">
-                <div class="video-card__overlay">
-                  <i data-lucide="play"></i>
-                </div>
-              </div>
-              <div class="video-card__info">
-                <h3 class="video-card__title">Explore Asheville Annual Meeting Re-Cap</h3>
-                <p class="video-card__client">BClip Productions · Explore Asheville</p>
-              </div>
-            </div>
-            <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129399677">
-              <div class="video-card__thumb">
-                <img src="assets/images/thumbnails/video-02.jpg" alt="SLAM Radiant Express Car Wash Social Ad" loading="lazy">
-                <div class="video-card__overlay">
-                  <i data-lucide="play"></i>
-                </div>
-              </div>
-              <div class="video-card__info">
-                <h3 class="video-card__title">SLAM Radiant Express Car Wash Social Ad</h3>
-                <p class="video-card__client">BClip Productions · SLAM Radiant Express Car Wash</p>
-              </div>
-            </div>
-            <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1107291873">
-              <div class="video-card__thumb">
-                <img src="assets/images/thumbnails/video-03.jpg" alt="Coburn's Incentive Trip Vids - Tulum" loading="lazy">
-                <div class="video-card__overlay">
-                  <i data-lucide="play"></i>
-                </div>
-              </div>
-              <div class="video-card__info">
-                <h3 class="video-card__title">Coburn's Incentive Trip Vids — Tulum</h3>
-                <p class="video-card__client">BClip Productions · Coburn Supply</p>
+    <!-- ===== VIDEO & MOTION (merged) ===== -->
+    <section class="panel panel--video" id="video">
+      <div class="panel__content panel__content--wide">
+        <div class="section-label reveal">
+          <span class="section-label__number">01</span>
+          <span class="section-label__text">Video & Motion</span>
+          <div class="section-label__line"></div>
+        </div>
+
+        <!-- Showreel -->
+        <h2 class="panel__title reveal">Featured Work</h2>
+        <div class="video-player reveal">
+          <iframe src="https://player.vimeo.com/video/1129393082?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1280" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox" style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+        <p class="panel__caption reveal">
+          26+ years of crafting compelling video content for brands, agencies, and artists.
+          From corporate narratives to kinetic typography — every frame tells a story.
+        </p>
+
+        <!-- Selected Work -->
+        <h3 class="panel__subtitle reveal">Selected Work</h3>
+        <div class="video-grid">
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129393082">
+            <div class="video-card__thumb">
+              <img src="assets/images/thumbnails/video-01.jpg" alt="Explore Asheville Annual Meeting Re-Cap" loading="lazy">
+              <div class="video-card__overlay">
+                <i data-lucide="play"></i>
               </div>
             </div>
-            <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129395556">
-              <div class="video-card__thumb">
-                <img src="assets/images/thumbnails/video-04.jpg" alt="Furman Mini Doc 2025" loading="lazy">
-                <div class="video-card__overlay">
-                  <i data-lucide="play"></i>
-                </div>
-              </div>
-              <div class="video-card__info">
-                <h3 class="video-card__title">Furman Mini Doc 2025</h3>
-                <p class="video-card__client">BClip Productions</p>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Explore Asheville Annual Meeting Re-Cap</h3>
+              <p class="video-card__client">BClip Productions · Explore Asheville</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129399677">
+            <div class="video-card__thumb">
+              <img src="assets/images/thumbnails/video-02.jpg" alt="SLAM Radiant Express Car Wash Social Ad" loading="lazy">
+              <div class="video-card__overlay">
+                <i data-lucide="play"></i>
               </div>
             </div>
-            <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/789617557">
-              <div class="video-card__thumb">
-                <img src="assets/images/thumbnails/video-05.jpg" alt="BDFink Studios Demo Reel TTi Video Work" loading="lazy">
-                <div class="video-card__overlay">
-                  <i data-lucide="play"></i>
-                </div>
-              </div>
-              <div class="video-card__info">
-                <h3 class="video-card__title">Demo Reel — TTi Video Work</h3>
-                <p class="video-card__client">TTi · Techtronic Industries</p>
+            <div class="video-card__info">
+              <h3 class="video-card__title">SLAM Radiant Express Car Wash Social Ad</h3>
+              <p class="video-card__client">BClip Productions · SLAM Radiant Express Car Wash</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1107291873">
+            <div class="video-card__thumb">
+              <img src="assets/images/thumbnails/video-03.jpg" alt="Coburn's Incentive Trip Vids - Tulum" loading="lazy">
+              <div class="video-card__overlay">
+                <i data-lucide="play"></i>
               </div>
             </div>
-            <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/791986335">
-              <div class="video-card__thumb">
-                <img src="assets/images/thumbnails/video-06.jpg" alt="BDFink Studios Demo Reel IBM Digital Video Services" loading="lazy">
-                <div class="video-card__overlay">
-                  <i data-lucide="play"></i>
-                </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Coburn's Incentive Trip Vids — Tulum</h3>
+              <p class="video-card__client">BClip Productions · Coburn Supply</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129395556">
+            <div class="video-card__thumb">
+              <img src="assets/images/thumbnails/video-04.jpg" alt="Furman Mini Doc 2025" loading="lazy">
+              <div class="video-card__overlay">
+                <i data-lucide="play"></i>
               </div>
-              <div class="video-card__info">
-                <h3 class="video-card__title">Demo Reel — Digital Video Services</h3>
-                <p class="video-card__client">IBM</p>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Furman Mini Doc 2025</h3>
+              <p class="video-card__client">BClip Productions</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/789617557">
+            <div class="video-card__thumb">
+              <img src="assets/images/thumbnails/video-05.jpg" alt="BDFink Studios Demo Reel TTi Video Work" loading="lazy">
+              <div class="video-card__overlay">
+                <i data-lucide="play"></i>
               </div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Demo Reel — TTi Video Work</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/791986335">
+            <div class="video-card__thumb">
+              <img src="assets/images/thumbnails/video-06.jpg" alt="BDFink Studios Demo Reel IBM Digital Video Services" loading="lazy">
+              <div class="video-card__overlay">
+                <i data-lucide="play"></i>
+              </div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Demo Reel — Digital Video Services</h3>
+              <p class="video-card__client">IBM</p>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- ===== PANEL 4: INSTAGRAM REELS ===== -->
-      <section class="panel panel--reels" id="reels">
-        <div class="panel__content panel__content--wide">
-          <div class="section-label reveal">
-            <span class="section-label__number">01b</span>
-            <span class="section-label__text">Short-Form Content</span>
-            <div class="section-label__line"></div>
+        <!-- Short-Form / Reels -->
+        <h3 class="panel__subtitle reveal">Reels</h3>
+        <div class="reel-grid">
+          <div class="reel-embed reveal">
+            <iframe src="https://www.instagram.com/reel/DEfr35PRI1i/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
           </div>
-          <h2 class="panel__title reveal">Reels</h2>
-          <div class="reel-grid">
-            <div class="reel-embed reveal">
-              <iframe src="https://www.instagram.com/reel/DEfr35PRI1i/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
-            <div class="reel-embed reveal">
-              <iframe src="https://www.instagram.com/reel/DKm92ltOekt/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
-            <div class="reel-embed reveal">
-              <iframe src="https://www.instagram.com/reel/DEnbVcCyV4K/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
-            <div class="reel-embed reveal">
-              <iframe src="https://www.instagram.com/reel/DExtfT_yzVz/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
+          <div class="reel-embed reveal">
+            <iframe src="https://www.instagram.com/reel/DKm92ltOekt/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+          </div>
+          <div class="reel-embed reveal">
+            <iframe src="https://www.instagram.com/reel/DEnbVcCyV4K/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+          </div>
+          <div class="reel-embed reveal">
+            <iframe src="https://www.instagram.com/reel/DExtfT_yzVz/embed" width="480" height="680" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
           </div>
         </div>
-      </section>
 
-      <!-- ===== PANEL 5: GEN AI VIDEOS ===== -->
-      <section class="panel panel--ai-video" id="ai-video">
-        <div class="panel__content panel__content--wide">
-          <div class="section-label reveal">
-            <span class="section-label__number">01c</span>
-            <span class="section-label__text">Gen AI Video</span>
-            <div class="section-label__line section-label__line--amber"></div>
+        <!-- AI-Generated Video -->
+        <h3 class="panel__subtitle reveal">AI-Generated Video</h3>
+        <p class="panel__caption reveal">
+          Pushing the boundaries of storytelling with cutting-edge AI video generation tools.
+          New technology, same creative eye.
+        </p>
+        <div class="reel-grid reel-grid--mixed">
+          <div class="reel-embed reel-embed--portrait reveal">
+            <iframe src="https://player.vimeo.com/video/1173684603?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
           </div>
-          <h2 class="panel__title reveal">AI-Generated Video</h2>
-          <p class="panel__caption reveal">
-            Pushing the boundaries of storytelling with cutting-edge AI video generation tools.
-            New technology, same creative eye.
-          </p>
-          <div class="reel-grid reel-grid--mixed">
-            <div class="reel-embed reel-embed--portrait reveal">
-              <iframe src="https://player.vimeo.com/video/1173684603?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
-            <div class="reel-embed reel-embed--portrait reveal">
-              <iframe src="https://player.vimeo.com/video/1130603438?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
-            <div class="reel-embed reel-embed--portrait reveal">
-              <iframe src="https://player.vimeo.com/video/1132754886?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
-            <div class="reel-embed reel-embed--square reveal">
-              <iframe src="https://player.vimeo.com/video/1169448724?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="504" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
+          <div class="reel-embed reel-embed--portrait reveal">
+            <iframe src="https://player.vimeo.com/video/1130603438?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+          </div>
+          <div class="reel-embed reel-embed--portrait reveal">
+            <iframe src="https://player.vimeo.com/video/1132754886?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+          </div>
+          <div class="reel-embed reel-embed--square reveal">
+            <iframe src="https://player.vimeo.com/video/1169448724?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="504" height="504" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ===== PANEL 6: ILLUSTRATION FEATURE ===== -->
-      <section class="panel panel--illus-feature" id="illustration-feature">
-        <div class="panel__content">
-          <div class="section-label reveal">
-            <span class="section-label__number">02</span>
+    <!-- ===== ILLUSTRATION (merged) ===== -->
+    <section class="panel panel--illustration" id="illustration">
+      <div class="panel__content panel__content--wide">
+        <div class="section-label reveal">
+          <span class="section-label__number">02</span>
+          <span class="section-label__text">Illustration</span>
+          <div class="section-label__line section-label__line--amber"></div>
+        </div>
 
-            <span class="section-label__text">Illustration</span>
-            <div class="section-label__line section-label__line--amber"></div>
+        <!-- Feature -->
+        <div class="illus-feature">
+          <div class="illus-feature__image reveal">
+            <img src="assets/images/illustrations/featured.jpg" alt="Featured illustration" loading="lazy">
           </div>
-          <div class="illus-feature">
-            <div class="illus-feature__image reveal">
-              <img src="assets/images/illustrations/featured.jpg" alt="Featured illustration" loading="lazy">
-            </div>
-            <div class="illus-feature__text">
-              <h2 class="panel__title reveal">Ink & Impact</h2>
-              <p class="panel__caption reveal">
-                From gig posters to editorial illustration, character design to full campaign artwork.
-                Hand-drawn craft meets digital precision — every line has intention.
-              </p>
-              <p class="panel__caption reveal">
-                Fine art training from SCAD combined with decades of commercial experience
-                means work that's both visually striking and strategically effective.
-              </p>
-            </div>
+          <div class="illus-feature__text">
+            <h2 class="panel__title reveal">Ink & Impact</h2>
+            <p class="panel__caption reveal">
+              From gig posters to editorial illustration, character design to full campaign artwork.
+              Hand-drawn craft meets digital precision — every line has intention.
+            </p>
+            <p class="panel__caption reveal">
+              Fine art training from SCAD combined with decades of commercial experience
+              means work that's both visually striking and strategically effective.
+            </p>
           </div>
         </div>
-      </section>
 
-      <!-- ===== PANEL 5: ILLUSTRATION GALLERY ===== -->
-      <section class="panel panel--illus-gallery" id="illustration-gallery">
-        <div class="panel__content">
-          <h2 class="panel__title reveal">Gallery</h2>
-          <div class="illus-grid">
-            <div class="illus-card reveal" data-index="0" data-full="assets/images/illustrations/illus-01.jpg">
-              <img src="assets/images/illustrations/illus-icon-01.jpg" alt="Illustration" loading="lazy">
-            </div>
-            <div class="illus-card reveal" data-index="1" data-full="assets/images/illustrations/illus-02.jpg">
-              <img src="assets/images/illustrations/illus-icon-02.jpg" alt="Illustration" loading="lazy">
-            </div>
-            <div class="illus-card reveal" data-index="2" data-full="assets/images/illustrations/illus-03.jpg">
-              <img src="assets/images/illustrations/illus-icon-03.jpg" alt="Illustration" loading="lazy">
-            </div>
-            <div class="illus-card reveal" data-index="3" data-full="assets/images/illustrations/illus-04.jpg">
-              <img src="assets/images/illustrations/illus-icon-04.jpg" alt="Illustration" loading="lazy">
-            </div>
-            <div class="illus-card reveal" data-index="4" data-full="assets/images/illustrations/illus-05.jpg">
-              <img src="assets/images/illustrations/illus-icon-05.jpg" alt="Illustration" loading="lazy">
-            </div>
-            <div class="illus-card reveal" data-index="5" data-full="assets/images/illustrations/illus-06.jpg">
-              <img src="assets/images/illustrations/illus-icon-06.jpg" alt="Illustration" loading="lazy">
-            </div>
-            <div class="illus-card reveal" data-index="6" data-full="assets/images/illustrations/illus-07.jpg">
-              <img src="assets/images/illustrations/illus-icon-07.jpg" alt="Illustration" loading="lazy">
-            </div>
-            <div class="illus-card reveal" data-index="7" data-full="assets/images/illustrations/illus-08.jpg">
-              <img src="assets/images/illustrations/illus-icon-08.jpg" alt="Illustration" loading="lazy">
-            </div>
+        <!-- Gallery -->
+        <h3 class="panel__subtitle reveal">Gallery</h3>
+        <div class="illus-grid">
+          <div class="illus-card reveal" data-index="0" data-full="assets/images/illustrations/illus-01.jpg">
+            <img src="assets/images/illustrations/illus-icon-01.jpg" alt="Illustration" loading="lazy">
+          </div>
+          <div class="illus-card reveal" data-index="1" data-full="assets/images/illustrations/illus-02.jpg">
+            <img src="assets/images/illustrations/illus-icon-02.jpg" alt="Illustration" loading="lazy">
+          </div>
+          <div class="illus-card reveal" data-index="2" data-full="assets/images/illustrations/illus-03.jpg">
+            <img src="assets/images/illustrations/illus-icon-03.jpg" alt="Illustration" loading="lazy">
+          </div>
+          <div class="illus-card reveal" data-index="3" data-full="assets/images/illustrations/illus-04.jpg">
+            <img src="assets/images/illustrations/illus-icon-04.jpg" alt="Illustration" loading="lazy">
+          </div>
+          <div class="illus-card reveal" data-index="4" data-full="assets/images/illustrations/illus-05.jpg">
+            <img src="assets/images/illustrations/illus-icon-05.jpg" alt="Illustration" loading="lazy">
+          </div>
+          <div class="illus-card reveal" data-index="5" data-full="assets/images/illustrations/illus-06.jpg">
+            <img src="assets/images/illustrations/illus-icon-06.jpg" alt="Illustration" loading="lazy">
+          </div>
+          <div class="illus-card reveal" data-index="6" data-full="assets/images/illustrations/illus-07.jpg">
+            <img src="assets/images/illustrations/illus-icon-07.jpg" alt="Illustration" loading="lazy">
+          </div>
+          <div class="illus-card reveal" data-index="7" data-full="assets/images/illustrations/illus-08.jpg">
+            <img src="assets/images/illustrations/illus-icon-08.jpg" alt="Illustration" loading="lazy">
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ===== PANEL 6: WEBSITE DESIGN ===== -->
-      <section class="panel panel--web-design" id="web-design">
-        <div class="panel__content">
-          <div class="section-label reveal">
-            <span class="section-label__number">03</span>
-            <span class="section-label__text">Web Design</span>
-            <div class="section-label__line section-label__line--steel"></div>
-          </div>
-          <h2 class="panel__title reveal">Digital Experiences</h2>
-          <div class="web-showcase reveal">
-            <div class="browser-frame">
-              <div class="browser-frame__bar">
-                <span class="browser-frame__dot"></span>
-                <span class="browser-frame__dot"></span>
-                <span class="browser-frame__dot"></span>
-                <span class="browser-frame__url">mysterybox13.com</span>
-              </div>
-              <div class="browser-frame__content">
-                <img src="assets/images/thumbnails/mysterybox13.jpg" alt="MysteryBox13.com website" loading="lazy">
-              </div>
-            </div>
-            <a href="https://www.mysterybox13.com" target="_blank" rel="noopener" class="web-showcase__link reveal">
-              <span>Visit MysteryBox13.com</span>
-              <i data-lucide="external-link"></i>
-            </a>
-          </div>
-          <p class="panel__caption reveal">
-            Custom-built websites with personality. From interactive portfolios to small business sites —
-            designed and developed with the same creative eye brought to every project.
-          </p>
+    <!-- ===== WEB DESIGN ===== -->
+    <section class="panel panel--web-design" id="web-design">
+      <div class="panel__content">
+        <div class="section-label reveal">
+          <span class="section-label__number">03</span>
+          <span class="section-label__text">Web Design</span>
+          <div class="section-label__line section-label__line--steel"></div>
         </div>
-      </section>
-
-      <!-- ===== PANEL 9: SOCIAL MEDIA MANAGEMENT ===== -->
-      <section class="panel panel--social-mgmt" id="social-mgmt">
-        <div class="panel__content panel__content--wide">
-          <div class="section-label reveal">
-            <span class="section-label__number">04</span>
-            <span class="section-label__text">Social Media Management</span>
-            <div class="section-label__line section-label__line--sage"></div>
-          </div>
-          <h2 class="panel__title reveal">Brands We Manage</h2>
-          <p class="panel__caption reveal">
-            Full social media management — content creation, scheduling, engagement, and growth strategy.
-          </p>
-          <div class="social-brands">
-            <!-- Chin Spin Adventures -->
-            <div class="social-brand-card reveal">
-              <h3 class="social-brand-card__name">Chin Spin Adventures</h3>
-              <div class="social-brand-card__videos">
-                <div class="social-video-embed">
-                  <iframe src="https://www.youtube.com/embed/TMPPLwZ3Uck" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-                </div>
-                <div class="social-video-embed">
-                  <iframe src="https://www.youtube.com/embed/wgQtAF6Qq90" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-                </div>
-              </div>
+        <h2 class="panel__title reveal">Digital Experiences</h2>
+        <div class="web-showcase reveal">
+          <div class="browser-frame">
+            <div class="browser-frame__bar">
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__dot"></span>
+              <span class="browser-frame__url">mysterybox13.com</span>
             </div>
-            <!-- Timmy's Famous Fried Turkeys -->
-            <div class="social-brand-card reveal">
-              <h3 class="social-brand-card__name">Timmy's Famous Fried Turkeys</h3>
-              <div class="social-brand-card__videos">
-                <div class="social-video-embed">
-                  <iframe src="https://www.youtube.com/embed/UYytvx9GcJs" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-                </div>
-                <div class="social-video-embed">
-                  <iframe src="https://www.youtube.com/embed/C1FhZtGMT50" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
-                </div>
-              </div>
+            <div class="browser-frame__content">
+              <img src="assets/images/thumbnails/mysterybox13.jpg" alt="MysteryBox13.com website" loading="lazy">
             </div>
           </div>
-          <p class="panel__caption panel__caption--cta reveal">
-            Need help managing your brand's social presence?
-            <a href="#contact" class="inline-link" data-section="11">Let's talk.</a>
-          </p>
-        </div>
-      </section>
-
-      <!-- ===== PANEL 10: PRICING & SERVICES ===== -->
-      <section class="panel panel--pricing" id="pricing">
-        <div class="panel__content panel__content--wide">
-          <div class="section-label reveal">
-            <span class="section-label__number">05</span>
-            <span class="section-label__text">Services & Pricing</span>
-            <div class="section-label__line"></div>
-          </div>
-          <h2 class="panel__title reveal">What We Offer</h2>
-          <div class="pricing-grid">
-
-            <!-- Video Editing -->
-            <div class="pricing-card pricing-card--ember reveal">
-              <div class="pricing-card__icon">
-                <i data-lucide="film"></i>
-              </div>
-              <h3 class="pricing-card__title">Video Editing</h3>
-              <div class="pricing-card__tiers">
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Quick Cut</span>
-                  <span class="pricing-tier__desc">Social media, short-form</span>
-                  <span class="pricing-tier__price">From $500</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Standard</span>
-                  <span class="pricing-tier__desc">Corporate, branded content</span>
-                  <span class="pricing-tier__price">From $1,500</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Premium</span>
-                  <span class="pricing-tier__desc">Full post-production</span>
-                  <span class="pricing-tier__price">From $3,500</span>
-                </div>
-              </div>
-              <a href="#contact" class="pricing-card__cta" data-section="11">Get a Quote</a>
-            </div>
-
-            <!-- Motion Graphics -->
-            <div class="pricing-card pricing-card--amber reveal">
-              <div class="pricing-card__icon">
-                <i data-lucide="sparkles"></i>
-              </div>
-              <h3 class="pricing-card__title">Motion Graphics</h3>
-              <div class="pricing-card__tiers">
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Logo Animation</span>
-                  <span class="pricing-tier__desc">5-10 sec animated reveal</span>
-                  <span class="pricing-tier__price">From $800</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Explainer Video</span>
-                  <span class="pricing-tier__desc">60-90 sec animated</span>
-                  <span class="pricing-tier__price">From $3,000</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Title Sequence</span>
-                  <span class="pricing-tier__desc">Full show open</span>
-                  <span class="pricing-tier__price">From $5,000</span>
-                </div>
-              </div>
-              <a href="#contact" class="pricing-card__cta" data-section="11">Get a Quote</a>
-            </div>
-
-            <!-- Illustration -->
-            <div class="pricing-card pricing-card--amber reveal">
-              <div class="pricing-card__icon">
-                <i data-lucide="pen-tool"></i>
-              </div>
-              <h3 class="pricing-card__title">Illustration</h3>
-              <div class="pricing-card__tiers">
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Spot Illustration</span>
-                  <span class="pricing-tier__desc">Editorial, icons</span>
-                  <span class="pricing-tier__price">From $500</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Gig Poster</span>
-                  <span class="pricing-tier__desc">Concert / event poster</span>
-                  <span class="pricing-tier__price">From $1,500</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Character Design</span>
-                  <span class="pricing-tier__desc">Original character + poses</span>
-                  <span class="pricing-tier__price">From $2,000</span>
-                </div>
-              </div>
-              <a href="#contact" class="pricing-card__cta" data-section="11">Get a Quote</a>
-            </div>
-
-            <!-- Web Design -->
-            <div class="pricing-card pricing-card--steel reveal">
-              <div class="pricing-card__icon">
-                <i data-lucide="monitor"></i>
-              </div>
-              <h3 class="pricing-card__title">Web Design</h3>
-              <div class="pricing-card__tiers">
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Portfolio / Landing</span>
-                  <span class="pricing-tier__desc">Single-page site</span>
-                  <span class="pricing-tier__price">From $500</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Small Business</span>
-                  <span class="pricing-tier__desc">Multi-page, responsive</span>
-                  <span class="pricing-tier__price">From $4,000</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Custom / Interactive</span>
-                  <span class="pricing-tier__desc">Animations, complex builds</span>
-                  <span class="pricing-tier__price">From $8,000</span>
-                </div>
-              </div>
-              <a href="#contact" class="pricing-card__cta" data-section="11">Get a Quote</a>
-            </div>
-
-            <!-- Social Media Management -->
-            <div class="pricing-card pricing-card--sage reveal">
-              <div class="pricing-card__icon">
-                <i data-lucide="megaphone"></i>
-              </div>
-              <h3 class="pricing-card__title">Social Media</h3>
-              <div class="pricing-card__tiers">
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Starter</span>
-                  <span class="pricing-tier__desc">1 platform, 8 posts/mo</span>
-                  <span class="pricing-tier__price">From $500/mo</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Growth</span>
-                  <span class="pricing-tier__desc">2-3 platforms, content + analytics</span>
-                  <span class="pricing-tier__price">From $1,200/mo</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Full Service</span>
-                  <span class="pricing-tier__desc">All platforms, daily posting</span>
-                  <span class="pricing-tier__price">From $2,500/mo</span>
-                </div>
-              </div>
-              <a href="#contact" class="pricing-card__cta" data-section="11">Get a Quote</a>
-            </div>
-
-            <!-- SEO & Automation -->
-            <div class="pricing-card pricing-card--steel reveal">
-              <div class="pricing-card__icon">
-                <i data-lucide="search"></i>
-              </div>
-              <h3 class="pricing-card__title">SEO & Automation</h3>
-              <div class="pricing-card__tiers">
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">SEO Audit</span>
-                  <span class="pricing-tier__desc">Site audit + keyword report</span>
-                  <span class="pricing-tier__price">From $500</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">SEO + Content</span>
-                  <span class="pricing-tier__desc">Ongoing optimization + copy</span>
-                  <span class="pricing-tier__price">From $800/mo</span>
-                </div>
-                <div class="pricing-tier">
-                  <span class="pricing-tier__name">Automation Setup</span>
-                  <span class="pricing-tier__desc">Workflows, scheduling, AI tools</span>
-                  <span class="pricing-tier__price">From $1,500</span>
-                </div>
-              </div>
-              <a href="#contact" class="pricing-card__cta" data-section="11">Get a Quote</a>
-            </div>
-
-          </div>
-
-          <!-- Monthly Care Plan — standalone callout -->
-          <div class="care-plan reveal">
-            <div class="care-plan__icon">
-              <i data-lucide="shield-check"></i>
-            </div>
-            <div class="care-plan__info">
-              <h3 class="care-plan__title">Monthly Care Plan</h3>
-              <p class="care-plan__desc">Hosting, security, software updates &amp; up to 1 hour of content changes per month</p>
-            </div>
-            <span class="care-plan__price">$75<span class="care-plan__period">/mo</span></span>
-            <a href="#contact" class="care-plan__cta" data-section="11">Get Started</a>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ===== PANEL 11: SHOP CTA ===== -->
-      <section class="panel panel--shop" id="shop-cta">
-        <div class="panel__content">
-          <div class="section-label reveal">
-            <span class="section-label__number">06</span>
-            <span class="section-label__text">Shop</span>
-            <div class="section-label__line section-label__line--amber"></div>
-          </div>
-          <h2 class="panel__title panel__title--large reveal">
-            Coloring Books<br><span class="accent">& More</span>
-          </h2>
-          <p class="panel__caption reveal">
-            Original coloring books packed with unique, imaginative artwork.
-            Available now on Amazon.
-          </p>
-          <a href="shop.html" class="shop-cta-btn reveal">
-            <span>Browse the Shop</span>
-            <i data-lucide="shopping-bag"></i>
+          <a href="https://www.mysterybox13.com" target="_blank" rel="noopener" class="web-showcase__link reveal">
+            <span>Visit MysteryBox13.com</span>
+            <i data-lucide="external-link"></i>
           </a>
         </div>
-      </section>
+        <p class="panel__caption reveal">
+          Custom-built websites with personality. From interactive portfolios to small business sites —
+          designed and developed with the same creative eye brought to every project.
+        </p>
+      </div>
+    </section>
 
-      <!-- ===== PANEL 12: CONTACT ===== -->
-      <section class="panel panel--contact" id="contact">
-        <div class="panel__content">
-          <h2 class="panel__title panel__title--large reveal">
-            Let's make something<br><span class="accent">together.</span>
-          </h2>
-          <div class="contact-layout">
-            <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="contact">
-              <p class="hidden" aria-hidden="true">
-                <label>Don't fill this out: <input name="bot-field"></label>
-              </p>
-              <div class="form-group">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="name" class="form-input" required>
+    <!-- ===== SOCIAL MEDIA MANAGEMENT ===== -->
+    <section class="panel panel--social-mgmt" id="social-mgmt">
+      <div class="panel__content panel__content--wide">
+        <div class="section-label reveal">
+          <span class="section-label__number">04</span>
+          <span class="section-label__text">Social Media Management</span>
+          <div class="section-label__line section-label__line--sage"></div>
+        </div>
+        <h2 class="panel__title reveal">Brands We Manage</h2>
+        <p class="panel__caption reveal">
+          Full social media management — content creation, scheduling, engagement, and growth strategy.
+        </p>
+        <div class="social-brands">
+          <!-- Chin Spin Adventures -->
+          <div class="social-brand-card reveal">
+            <h3 class="social-brand-card__name">Chin Spin Adventures</h3>
+            <div class="social-brand-card__videos">
+              <div class="social-video-embed">
+                <iframe src="https://www.youtube.com/embed/TMPPLwZ3Uck" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
               </div>
-              <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-input" required>
+              <div class="social-video-embed">
+                <iframe src="https://www.youtube.com/embed/wgQtAF6Qq90" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
               </div>
-              <div class="form-group">
-                <label for="service" class="form-label">What are you looking for?</label>
-                <select id="service" name="service" class="form-input form-select">
-                  <option value="" disabled selected>Select a service</option>
-                  <option value="video-editing">Video Editing</option>
-                  <option value="motion-graphics">Motion Graphics</option>
-                  <option value="illustration">Illustration</option>
-                  <option value="web-design">Web Design</option>
-                  <option value="social-media">Social Media Management</option>
-                  <option value="other">Something else</option>
-                </select>
+            </div>
+          </div>
+          <!-- Timmy's Famous Fried Turkeys -->
+          <div class="social-brand-card reveal">
+            <h3 class="social-brand-card__name">Timmy's Famous Fried Turkeys</h3>
+            <div class="social-brand-card__videos">
+              <div class="social-video-embed">
+                <iframe src="https://www.youtube.com/embed/UYytvx9GcJs" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
               </div>
-              <div class="form-group">
-                <label for="message" class="form-label">Tell me about your project</label>
-                <textarea id="message" name="message" class="form-input form-textarea" rows="4" required></textarea>
-              </div>
-              <button type="submit" class="form-submit">
-                <span>Send Message</span>
-                <i data-lucide="send"></i>
-              </button>
-            </form>
-            <div class="contact-info reveal">
-              <div class="contact-info__block">
-                <h3 class="contact-info__heading">Direct</h3>
-                <a href="mailto:bdfinkstudios@gmail.com" class="contact-info__link">
-                  <i data-lucide="mail"></i>
-                  bdfinkstudios@gmail.com
-                </a>
-                <a href="tel:+17707131374" class="contact-info__link">
-                  <i data-lucide="phone"></i>
-                  770-713-1374
-                </a>
-              </div>
-              <div class="contact-info__block">
-                <h3 class="contact-info__heading">Connect</h3>
-                <a href="https://linkedin.com/in/bdfinkstudios" target="_blank" rel="noopener" class="contact-info__link">
-                  <i data-lucide="linkedin"></i>
-                  LinkedIn
-                </a>
-              </div>
-              <div class="contact-info__footer">
-                <p>&copy; 2026 B D Fink Studios. All rights reserved.</p>
+              <div class="social-video-embed">
+                <iframe src="https://www.youtube.com/embed/C1FhZtGMT50" width="405" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        <p class="panel__caption panel__caption--cta reveal">
+          Need help managing your brand's social presence?
+          <a href="#contact" class="inline-link">Let's talk.</a>
+        </p>
+      </div>
+    </section>
 
-    </div><!-- /.panels -->
-  </div><!-- /.scroll-wrapper -->
+    <!-- ===== PRICING & SERVICES ===== -->
+    <section class="panel panel--pricing" id="pricing">
+      <div class="panel__content panel__content--wide">
+        <div class="section-label reveal">
+          <span class="section-label__number">05</span>
+          <span class="section-label__text">Services & Pricing</span>
+          <div class="section-label__line"></div>
+        </div>
+        <h2 class="panel__title reveal">What We Offer</h2>
+        <div class="pricing-grid">
+
+          <!-- Video Editing -->
+          <div class="pricing-card pricing-card--ember reveal">
+            <div class="pricing-card__icon">
+              <i data-lucide="film"></i>
+            </div>
+            <h3 class="pricing-card__title">Video Editing</h3>
+            <div class="pricing-card__tiers">
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Quick Cut</span>
+                <span class="pricing-tier__desc">Social media, short-form</span>
+                <span class="pricing-tier__price">From $500</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Standard</span>
+                <span class="pricing-tier__desc">Corporate, branded content</span>
+                <span class="pricing-tier__price">From $1,500</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Premium</span>
+                <span class="pricing-tier__desc">Full post-production</span>
+                <span class="pricing-tier__price">From $3,500</span>
+              </div>
+            </div>
+            <a href="#contact" class="pricing-card__cta">Get a Quote</a>
+          </div>
+
+          <!-- Motion Graphics -->
+          <div class="pricing-card pricing-card--amber reveal">
+            <div class="pricing-card__icon">
+              <i data-lucide="sparkles"></i>
+            </div>
+            <h3 class="pricing-card__title">Motion Graphics</h3>
+            <div class="pricing-card__tiers">
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Logo Animation</span>
+                <span class="pricing-tier__desc">5-10 sec animated reveal</span>
+                <span class="pricing-tier__price">From $800</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Explainer Video</span>
+                <span class="pricing-tier__desc">60-90 sec animated</span>
+                <span class="pricing-tier__price">From $3,000</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Title Sequence</span>
+                <span class="pricing-tier__desc">Full show open</span>
+                <span class="pricing-tier__price">From $5,000</span>
+              </div>
+            </div>
+            <a href="#contact" class="pricing-card__cta">Get a Quote</a>
+          </div>
+
+          <!-- Illustration -->
+          <div class="pricing-card pricing-card--amber reveal">
+            <div class="pricing-card__icon">
+              <i data-lucide="pen-tool"></i>
+            </div>
+            <h3 class="pricing-card__title">Illustration</h3>
+            <div class="pricing-card__tiers">
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Spot Illustration</span>
+                <span class="pricing-tier__desc">Editorial, icons</span>
+                <span class="pricing-tier__price">From $500</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Gig Poster</span>
+                <span class="pricing-tier__desc">Concert / event poster</span>
+                <span class="pricing-tier__price">From $1,500</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Character Design</span>
+                <span class="pricing-tier__desc">Original character + poses</span>
+                <span class="pricing-tier__price">From $2,000</span>
+              </div>
+            </div>
+            <a href="#contact" class="pricing-card__cta">Get a Quote</a>
+          </div>
+
+          <!-- Web Design -->
+          <div class="pricing-card pricing-card--steel reveal">
+            <div class="pricing-card__icon">
+              <i data-lucide="monitor"></i>
+            </div>
+            <h3 class="pricing-card__title">Web Design</h3>
+            <div class="pricing-card__tiers">
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Portfolio / Landing</span>
+                <span class="pricing-tier__desc">Single-page site</span>
+                <span class="pricing-tier__price">From $500</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Small Business</span>
+                <span class="pricing-tier__desc">Multi-page, responsive</span>
+                <span class="pricing-tier__price">From $4,000</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Custom / Interactive</span>
+                <span class="pricing-tier__desc">Animations, complex builds</span>
+                <span class="pricing-tier__price">From $8,000</span>
+              </div>
+            </div>
+            <a href="#contact" class="pricing-card__cta">Get a Quote</a>
+          </div>
+
+          <!-- Social Media Management -->
+          <div class="pricing-card pricing-card--sage reveal">
+            <div class="pricing-card__icon">
+              <i data-lucide="megaphone"></i>
+            </div>
+            <h3 class="pricing-card__title">Social Media</h3>
+            <div class="pricing-card__tiers">
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Starter</span>
+                <span class="pricing-tier__desc">1 platform, 8 posts/mo</span>
+                <span class="pricing-tier__price">From $500/mo</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Growth</span>
+                <span class="pricing-tier__desc">2-3 platforms, content + analytics</span>
+                <span class="pricing-tier__price">From $1,200/mo</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Full Service</span>
+                <span class="pricing-tier__desc">All platforms, daily posting</span>
+                <span class="pricing-tier__price">From $2,500/mo</span>
+              </div>
+            </div>
+            <a href="#contact" class="pricing-card__cta">Get a Quote</a>
+          </div>
+
+          <!-- SEO & Automation -->
+          <div class="pricing-card pricing-card--steel reveal">
+            <div class="pricing-card__icon">
+              <i data-lucide="search"></i>
+            </div>
+            <h3 class="pricing-card__title">SEO & Automation</h3>
+            <div class="pricing-card__tiers">
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">SEO Audit</span>
+                <span class="pricing-tier__desc">Site audit + keyword report</span>
+                <span class="pricing-tier__price">From $500</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">SEO + Content</span>
+                <span class="pricing-tier__desc">Ongoing optimization + copy</span>
+                <span class="pricing-tier__price">From $800/mo</span>
+              </div>
+              <div class="pricing-tier">
+                <span class="pricing-tier__name">Automation Setup</span>
+                <span class="pricing-tier__desc">Workflows, scheduling, AI tools</span>
+                <span class="pricing-tier__price">From $1,500</span>
+              </div>
+            </div>
+            <a href="#contact" class="pricing-card__cta">Get a Quote</a>
+          </div>
+
+        </div>
+
+        <!-- Monthly Care Plan — standalone callout -->
+        <div class="care-plan reveal">
+          <div class="care-plan__icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <div class="care-plan__info">
+            <h3 class="care-plan__title">Monthly Care Plan</h3>
+            <p class="care-plan__desc">Hosting, security, software updates & up to 1 hour of content changes per month</p>
+          </div>
+          <span class="care-plan__price">$75<span class="care-plan__period">/mo</span></span>
+          <a href="#contact" class="care-plan__cta">Get Started</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SHOP CTA ===== -->
+    <section class="panel panel--shop" id="shop-cta">
+      <div class="panel__content">
+        <div class="section-label reveal">
+          <span class="section-label__number">06</span>
+          <span class="section-label__text">Shop</span>
+          <div class="section-label__line section-label__line--amber"></div>
+        </div>
+        <h2 class="panel__title panel__title--large reveal">
+          Coloring Books<br><span class="accent">& More</span>
+        </h2>
+        <p class="panel__caption reveal">
+          Original coloring books packed with unique, imaginative artwork.
+          Available now on Amazon.
+        </p>
+        <a href="shop.html" class="shop-cta-btn reveal">
+          <span>Browse the Shop</span>
+          <i data-lucide="shopping-bag"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="panel panel--contact" id="contact">
+      <div class="panel__content">
+        <h2 class="panel__title panel__title--large reveal">
+          Let's make something<br><span class="accent">together.</span>
+        </h2>
+        <div class="contact-layout">
+          <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden" aria-hidden="true">
+              <label>Don't fill this out: <input name="bot-field"></label>
+            </p>
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="service" class="form-label">What are you looking for?</label>
+              <select id="service" name="service" class="form-input form-select">
+                <option value="" disabled selected>Select a service</option>
+                <option value="video-editing">Video Editing</option>
+                <option value="motion-graphics">Motion Graphics</option>
+                <option value="illustration">Illustration</option>
+                <option value="web-design">Web Design</option>
+                <option value="social-media">Social Media Management</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Tell me about your project</label>
+              <textarea id="message" name="message" class="form-input form-textarea" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <span>Send Message</span>
+              <i data-lucide="send"></i>
+            </button>
+          </form>
+          <div class="contact-info reveal">
+            <div class="contact-info__block">
+              <h3 class="contact-info__heading">Direct</h3>
+              <a href="mailto:bdfinkstudios@gmail.com" class="contact-info__link">
+                <i data-lucide="mail"></i>
+                bdfinkstudios@gmail.com
+              </a>
+              <a href="tel:+17707131374" class="contact-info__link">
+                <i data-lucide="phone"></i>
+                770-713-1374
+              </a>
+            </div>
+            <div class="contact-info__block">
+              <h3 class="contact-info__heading">Connect</h3>
+              <a href="https://linkedin.com/in/bdfinkstudios" target="_blank" rel="noopener" class="contact-info__link">
+                <i data-lucide="linkedin"></i>
+                LinkedIn
+              </a>
+            </div>
+            <div class="contact-info__footer">
+              <p>&copy; 2026 B D Fink Studios. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ========== LIGHTBOX ========== -->
   <div class="lightbox" id="lightbox">
@@ -780,5 +751,6 @@
   <script src="js/main.js"></script>
   <script src="js/lightbox.js"></script>
   <script src="js/form.js"></script>
+
 </body>
 </html>
