@@ -43,6 +43,7 @@
 | Portfolio / Landing | Single-page site | $500–$4,000 |
 | Small Business | Multi-page site (5–8 pages), responsive | $4,000–$8,000 |
 | Custom / Interactive | Animations, horizontal scroll, complex builds | $8,000–$15,000 |
+| Monthly Care Plan | Hosting, security, software updates, up to 1hr content changes/mo | $75/mo |
 
 ---
 

@@ -1154,6 +1154,16 @@ a:hover {
   padding-bottom: 0;
 }
 
+.pricing-tier--recurring {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--smoke);
+  border-bottom: none;
+  background: rgba(91, 143, 168, 0.06);
+  border-radius: 8px;
+  padding: 12px;
+}
+
 .pricing-tier__name {
   font-weight: 600;
   font-size: var(--text-body);
