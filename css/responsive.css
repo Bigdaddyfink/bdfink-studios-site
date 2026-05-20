@@ -186,6 +186,17 @@
     padding: 24px 20px;
   }
 
+  .care-plan {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .care-plan__cta {
+    width: 100%;
+  }
+
   /* ── Contact ── */
   .contact-layout {
     grid-template-columns: 1fr;

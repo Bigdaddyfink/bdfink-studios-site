@@ -1154,14 +1154,88 @@ a:hover {
   padding-bottom: 0;
 }
 
-.pricing-tier--recurring {
-  margin-top: 8px;
-  padding-top: 16px;
-  border-top: 1px dashed var(--smoke);
-  border-bottom: none;
-  background: rgba(91, 143, 168, 0.06);
+/* --- Monthly Care Plan Callout Bar --- */
+.care-plan {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 16px 24px;
+  background: rgba(91, 143, 168, 0.08);
+  border: 1px solid rgba(91, 143, 168, 0.25);
+  border-radius: 12px;
+}
+
+.care-plan__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--steel);
+  flex-shrink: 0;
+}
+
+.care-plan__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.care-plan__info {
+  flex: 1;
+}
+
+.care-plan__title {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.care-plan__desc {
+  font-size: var(--text-small);
+  color: var(--smoke);
+  line-height: 1.4;
+}
+
+.care-plan__price {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 600;
+  color: var(--steel);
+  flex-shrink: 0;
+}
+
+.care-plan__period {
+  font-size: var(--text-small);
+  font-weight: 400;
+  color: var(--smoke);
+}
+
+.care-plan__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
   border-radius: 8px;
-  padding: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--midnight);
+  background: var(--steel);
+  border: none;
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.care-plan__cta:hover {
+  background: #8ab4cc;
+  transform: translateY(-2px);
+  color: var(--midnight);
 }
 
 .pricing-tier__name {
