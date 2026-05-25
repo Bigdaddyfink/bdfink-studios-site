@@ -196,7 +196,13 @@
         <!-- Showreel -->
         <h2 class="panel__title reveal">Featured Work</h2>
         <div class="video-player reveal">
-          <iframe src="https://player.vimeo.com/video/1129393082?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1280" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox" style="width:100%;height:100%;border:none;"></iframe>
+          <iframe id="featuredVimeoIframe" src="https://player.vimeo.com/video/1129393082?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1280" height="720" frameborder="0" allow="autoplay; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox" style="width:100%;height:100%;border:none;"></iframe>
+          <div class="vimeo-end-overlay" id="featuredVimeoOverlay">
+            <button class="vimeo-replay-btn" id="featuredVimeoReplay">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              Replay
+            </button>
+          </div>
         </div>
         <p class="panel__caption reveal">
           26+ years of crafting compelling video content for brands, agencies, and artists.
@@ -205,13 +211,14 @@
 
         <!-- Selected Work -->
         <h3 class="panel__subtitle reveal">Selected Work</h3>
+
+        <!-- BClip Productions -->
+        <h4 class="video-group-label reveal">BClip Productions</h4>
         <div class="video-grid">
           <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129393082">
             <div class="video-card__thumb">
               <img src="assets/images/thumbnails/video-01.jpg" alt="Explore Asheville Annual Meeting Re-Cap" loading="lazy">
-              <div class="video-card__overlay">
-                <i data-lucide="play"></i>
-              </div>
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
             </div>
             <div class="video-card__info">
               <h3 class="video-card__title">Explore Asheville Annual Meeting Re-Cap</h3>
@@ -221,9 +228,7 @@
           <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129399677">
             <div class="video-card__thumb">
               <img src="assets/images/thumbnails/video-02.jpg" alt="SLAM Radiant Express Car Wash Social Ad" loading="lazy">
-              <div class="video-card__overlay">
-                <i data-lucide="play"></i>
-              </div>
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
             </div>
             <div class="video-card__info">
               <h3 class="video-card__title">SLAM Radiant Express Car Wash Social Ad</h3>
@@ -233,9 +238,7 @@
           <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1107291873">
             <div class="video-card__thumb">
               <img src="assets/images/thumbnails/video-03.jpg" alt="Coburn's Incentive Trip Vids - Tulum" loading="lazy">
-              <div class="video-card__overlay">
-                <i data-lucide="play"></i>
-              </div>
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
             </div>
             <div class="video-card__info">
               <h3 class="video-card__title">Coburn's Incentive Trip Vids — Tulum</h3>
@@ -245,37 +248,386 @@
           <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129395556">
             <div class="video-card__thumb">
               <img src="assets/images/thumbnails/video-04.jpg" alt="Furman Mini Doc 2025" loading="lazy">
-              <div class="video-card__overlay">
-                <i data-lucide="play"></i>
-              </div>
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
             </div>
             <div class="video-card__info">
               <h3 class="video-card__title">Furman Mini Doc 2025</h3>
               <p class="video-card__client">BClip Productions</p>
             </div>
           </div>
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1129404561">
+            <div class="video-card__thumb">
+              <img src="https://vumbnail.com/1129404561.jpg" alt="VIBE Car Wash Social Media Ad 2025" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">VIBE Car Wash Social Media Ad 2025</h3>
+              <p class="video-card__client">BClip Productions</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/1107291557">
+            <div class="video-card__thumb">
+              <img src="https://vumbnail.com/1107291557.jpg" alt="Coburn's Incentive Trip — Lisbon 2025" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Coburn's Incentive Trip — Lisbon 2025</h3>
+              <p class="video-card__client">BClip Productions · Coburn Supply</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TTi · Techtronic Industries -->
+        <h4 class="video-group-label reveal">TTi &middot; Techtronic Industries</h4>
+        <div class="video-grid">
           <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/789617557">
             <div class="video-card__thumb">
               <img src="assets/images/thumbnails/video-05.jpg" alt="BDFink Studios Demo Reel TTi Video Work" loading="lazy">
-              <div class="video-card__overlay">
-                <i data-lucide="play"></i>
-              </div>
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
             </div>
             <div class="video-card__info">
               <h3 class="video-card__title">Demo Reel — TTi Video Work</h3>
               <p class="video-card__client">TTi · Techtronic Industries</p>
             </div>
           </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/pa9YXM29wXc">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/pa9YXM29wXc/maxresdefault.jpg" alt="Let's Clear The Air | RYOBI 40V HP Brushless Solutions" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Let's Clear The Air | RYOBI 40V HP Brushless Solutions</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/EaZlCvLNnYg">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/EaZlCvLNnYg/maxresdefault.jpg" alt="RYOBI 18V ONE+ Handheld Electrostatic Sprayer" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ Handheld Electrostatic Sprayer</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/A0KDcFElphI">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/A0KDcFElphI/maxresdefault.jpg" alt="RIDGID 23 Gauge Pin Nailer" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RIDGID 23 Gauge Pin Nailer</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/JD_RP5LEMX0">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/JD_RP5LEMX0/maxresdefault.jpg" alt="RYOBI Days FREE Tool Promotion!" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI Days FREE Tool Promotion!</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/Oo1rLZUqIsA">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/Oo1rLZUqIsA/maxresdefault.jpg" alt="RYOBI Rotating Wash Brush" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI Rotating Wash Brush</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/mLa9x0sD6L8">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/mLa9x0sD6L8/maxresdefault.jpg" alt="RYOBI 18V ONE+ Handheld Cultivator" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ Handheld Cultivator</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/dCTB0OFJ93M">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/dCTB0OFJ93M/maxresdefault.jpg" alt="RYOBI 18V ONE+ 8in Pruning Chainsaw" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ 8" Pruning Chainsaw</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/PGK-K0keEQw">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/PGK-K0keEQw/maxresdefault.jpg" alt="Electrostatic Spray Technology" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Electrostatic Spray Technology</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/aGYMJxd1yt4">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/aGYMJxd1yt4/maxresdefault.jpg" alt="RYOBI 18V ONE+ EZClean Power Cleaner" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ EZClean Power Cleaner</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/FY-dH_Oi1Uw">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/FY-dH_Oi1Uw/maxresdefault.jpg" alt="RYOBI 80V HP Brushless 30in Zero Turn Riding Mower Assembly Guide" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 80V HP Brushless 30" Zero Turn Mower Assembly</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/BDP-1OmGczs">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/BDP-1OmGczs/maxresdefault.jpg" alt="RYOBI 40V HP Brushless 21in Whisper Series Snow Blower Assembly Guide" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 40V HP 21" Whisper Series Snow Blower Assembly</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/2QSCyHSMWjM">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/2QSCyHSMWjM/maxresdefault.jpg" alt="Bagging Kit Installation | RYOBI 42in 80V ZTR 2-Bin Bagger" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 42" 80V ZTR 2-Bin Bagger Installation Guide</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/SRc897WrKvg">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/SRc897WrKvg/maxresdefault.jpg" alt="RYOBI 40V HP Brushless 24in Snow Blower Control Panel Guide" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 40V HP 24" Snow Blower Control Panel Guide</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/QBU8wo09yns">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/QBU8wo09yns/maxresdefault.jpg" alt="RYOBI 18V ONE+ HP Brushless 18GA Brad Nailer Testimonial" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ HP Brad Nailer Testimonial</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/2b5eOgHoVdg">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/2b5eOgHoVdg/maxresdefault.jpg" alt="RYOBI 18V ONE+ Hybrid LED Panel Light" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ Hybrid LED Panel Light</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/RrPMJuLdg1g">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/RrPMJuLdg1g/maxresdefault.jpg" alt="RYOBI 18V ONE+ HP Brushless Whisper Series Hedge Trimmer" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V HP Brushless Whisper Series Hedge Trimmer</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/z96QPrA2Ywg">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/z96QPrA2Ywg/maxresdefault.jpg" alt="RYOBI 18V ONE+ Pole Hedge Trimmer" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ Pole Hedge Trimmer — Extends to 9 ft.</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/iZcA3bIHeoQ">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/iZcA3bIHeoQ/maxresdefault.jpg" alt="EXPAND-IT Attachment System | RYOBI Tuesday Tips" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">EXPAND-IT Attachment System | RYOBI Tuesday Tips</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/daST2yiEzdw">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/daST2yiEzdw/maxresdefault.jpg" alt="Campfire Setup | RYOBI Tuesday Tips" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Campfire Setup | RYOBI Tuesday Tips</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/hx-qx8mONrE">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/hx-qx8mONrE/maxresdefault.jpg" alt="The Power To Do More | RYOBI Tuesday Tips" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">The Power To Do More.™ | RYOBI Tuesday Tips</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/5bsWDkE-9Vs">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/5bsWDkE-9Vs/maxresdefault.jpg" alt="CORDLESS Holiday Essentials | RYOBI Tuesday Tips" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">CORDLESS Holiday Essentials | RYOBI Tuesday Tips</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/twkuD4BjhhQ">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/twkuD4BjhhQ/maxresdefault.jpg" alt="Cordless Lighting Solutions | RYOBI Tuesday Tips" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Cordless Lighting Solutions | RYOBI Tuesday Tips</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/rq21IUv-mv0">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/rq21IUv-mv0/maxresdefault.jpg" alt="How To Make A Mobile Spice Rack Organizer | DIY Rolling Spice Rack" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">DIY Rolling Spice Rack Organizer</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/4eZNa86GoW4">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/4eZNa86GoW4/maxresdefault.jpg" alt="How to Upgrade an Interior Door | RYOBI DIY" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">How to Upgrade an Interior Door | RYOBI DIY</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/7L-yZl7IZ0I">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/7L-yZl7IZ0I/maxresdefault.jpg" alt="RYOBI 18V ONE+ Stick Vac Maintenance" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">RYOBI 18V ONE+ Stick Vac Maintenance</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/WtRhB89Hp44">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/WtRhB89Hp44/maxresdefault.jpg" alt="DIY Pantry Upgrade | RYOBI How-To Home Improvement" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">DIY Pantry Upgrade | RYOBI How-To</h3>
+              <p class="video-card__client">TTi · Techtronic Industries</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- IBM -->
+        <h4 class="video-group-label reveal">IBM</h4>
+        <div class="video-grid">
           <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/791986335">
             <div class="video-card__thumb">
               <img src="assets/images/thumbnails/video-06.jpg" alt="BDFink Studios Demo Reel IBM Digital Video Services" loading="lazy">
-              <div class="video-card__overlay">
-                <i data-lucide="play"></i>
-              </div>
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
             </div>
             <div class="video-card__info">
               <h3 class="video-card__title">Demo Reel — Digital Video Services</h3>
               <p class="video-card__client">IBM</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/8VH6Whkd90s">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/8VH6Whkd90s/maxresdefault.jpg" alt="Blue Mix Logo Animation" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Blue Mix Logo Animation</h3>
+              <p class="video-card__client">IBM</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/BUtQ5hyoIUA">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/BUtQ5hyoIUA/maxresdefault.jpg" alt="Make A Point" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Make A Point</h3>
+              <p class="video-card__client">IBM</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/q57p4uiKzzk">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/q57p4uiKzzk/maxresdefault.jpg" alt="Point of View" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Point of View</h3>
+              <p class="video-card__client">IBM</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/MihEfWET6dI">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/MihEfWET6dI/maxresdefault.jpg" alt="Point the Way" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Point the Way</h3>
+              <p class="video-card__client">IBM</p>
+            </div>
+          </div>
+          <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/zH89GfZlB6E">
+            <div class="video-card__thumb">
+              <img src="https://img.youtube.com/vi/zH89GfZlB6E/maxresdefault.jpg" alt="Point It Out" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">Point It Out</h3>
+              <p class="video-card__client">IBM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BDFink Studios -->
+        <h4 class="video-group-label reveal">BDFink Studios</h4>
+        <div class="video-grid">
+          <div class="video-card reveal" data-video-url="https://player.vimeo.com/video/350078196">
+            <div class="video-card__thumb">
+              <img src="https://vumbnail.com/350078196.jpg" alt="MysteryBox 13 Mural Stop Motion Animation" loading="lazy">
+              <div class="video-card__overlay"><i data-lucide="play"></i></div>
+            </div>
+            <div class="video-card__info">
+              <h3 class="video-card__title">MysteryBox 13 Mural Stop Motion Animation</h3>
+              <p class="video-card__client">BDFink Studios</p>
             </div>
           </div>
         </div>
@@ -742,6 +1094,7 @@
   </div>
 
   <!-- Scripts -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
   <script src="js/main.js"></script>
   <script src="js/lightbox.js"></script>
   <script src="js/form.js"></script>

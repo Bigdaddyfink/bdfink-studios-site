@@ -93,12 +93,46 @@
       img.alt = item.alt || 'Gallery image';
       lightboxContent.appendChild(img);
     } else if (item.type === 'video') {
+      const isVimeo = item.src.includes('vimeo.com');
+
+      const isYouTube = item.src.includes('youtube.com');
+      let embedSrc = item.src;
+      if (isYouTube) {
+        const sep = embedSrc.includes('?') ? '&' : '?';
+        embedSrc += sep + 'origin=' + encodeURIComponent(window.location.origin);
+      }
+
       const iframe = document.createElement('iframe');
-      iframe.src = item.src;
-      iframe.allow =
-        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      lightboxContent.appendChild(iframe);
+      iframe.src = embedSrc;
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.allow = 'autoplay; picture-in-picture';
+
+      if (isVimeo) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'vimeo-wrapper';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'vimeo-end-overlay';
+
+        const replayBtn = document.createElement('button');
+        replayBtn.className = 'vimeo-replay-btn';
+        replayBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Replay';
+
+        overlay.appendChild(replayBtn);
+        wrapper.appendChild(iframe);
+        wrapper.appendChild(overlay);
+        lightboxContent.appendChild(wrapper);
+
+        const player = new Vimeo.Player(iframe);
+        player.on('ended', () => overlay.classList.add('active'));
+        replayBtn.addEventListener('click', () => {
+          overlay.classList.remove('active');
+          player.play();
+        });
+      } else {
+        lightboxContent.appendChild(iframe);
+      }
     }
   }
 

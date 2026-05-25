@@ -475,6 +475,7 @@ a:hover {
 }
 
 .video-player {
+  position: relative;
   width: 100%;
   max-width: 800px;
   aspect-ratio: 16 / 9;
@@ -528,6 +529,19 @@ a:hover {
 /* --- Video Gallery Grid --- */
 .panel--video-gallery {
   background: var(--midnight);
+}
+
+.video-group-label {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-top: 56px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .video-grid {
@@ -1644,4 +1658,54 @@ a:hover {
 .lightbox__next svg {
   width: 24px;
   height: 24px;
+}
+
+.vimeo-wrapper {
+  position: relative;
+  width: 80vw;
+  height: 45vw;
+}
+
+.vimeo-wrapper iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.vimeo-end-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.vimeo-end-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.vimeo-replay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: transparent;
+  border: 2px solid var(--white);
+  border-radius: 40px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.vimeo-replay-btn:hover {
+  background: var(--ember);
+  border-color: var(--ember);
 }

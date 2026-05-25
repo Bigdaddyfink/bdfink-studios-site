@@ -216,12 +216,28 @@
     });
   }
 
+  // ── Featured Vimeo end-screen overlay ───────────────────────
+  function initFeaturedVimeo() {
+    const iframe = document.getElementById('featuredVimeoIframe');
+    const overlay = document.getElementById('featuredVimeoOverlay');
+    const replayBtn = document.getElementById('featuredVimeoReplay');
+    if (!iframe || !overlay || !replayBtn) return;
+
+    const player = new Vimeo.Player(iframe);
+    player.on('ended', () => overlay.classList.add('active'));
+    replayBtn.addEventListener('click', () => {
+      overlay.classList.remove('active');
+      player.play();
+    });
+  }
+
   // ── Initialize ──────────────────────────────────────────────
   function init() {
     initScrollReveals();
     initNavigation();
     initLazyVideos();
     initHeroParticles();
+    initFeaturedVimeo();
   }
 
   if (document.readyState === 'loading') {
