@@ -788,6 +788,7 @@ a:hover {
 }
 
 .reel-embed {
+  position: relative;
   flex: 1;
   min-width: 0;
   max-width: 320px;
