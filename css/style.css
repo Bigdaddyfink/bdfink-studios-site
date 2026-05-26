@@ -781,17 +781,17 @@ a:hover {
 }
 
 .reel-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-top: 24px;
-  align-items: flex-start;
+  align-items: start;
 }
 
 .reel-embed {
   position: relative;
-  flex: 1;
   min-width: 0;
-  max-width: 320px;
+  max-width: none;
   height: 560px;
   border-radius: 12px;
   overflow: hidden;
@@ -814,6 +814,7 @@ a:hover {
 }
 
 .reel-grid--landscape {
+  display: flex;
   flex-wrap: wrap;
   max-width: 1100px;
 }
@@ -1046,6 +1047,7 @@ a:hover {
 }
 
 .reel-grid--mixed {
+  display: flex;
   align-items: center;
 }
 
