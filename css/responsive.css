@@ -184,6 +184,23 @@
     height: 380px;
   }
 
+  /* ── AI Videos ── */
+  .reel-grid--mixed {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .reel-embed--portrait {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+
+  .reel-embed--square {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
 
   /* ── Social Media ── */
   .social-brands {
@@ -236,6 +253,16 @@
 
   .reel-embed {
     height: 520px;
+  }
+
+  .reel-embed--portrait {
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
+
+  .reel-embed--square {
+    flex: 0 0 85%;
+    max-width: 85%;
   }
 
   .social-video-embed {
